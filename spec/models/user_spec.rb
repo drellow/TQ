@@ -37,10 +37,5 @@ describe User do
     @user.answers.count.should == 1
   end
 
-  it "should accumulate points given by responders to questions" do
-    @user2.votes.build(:answer_id => 1, :score => 1)
-
-    @user.score.should == 1
-  end
 
 end

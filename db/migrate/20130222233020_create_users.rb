@@ -9,6 +9,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :session_token
       t.boolean :admin
       t.string :title
+      t.integer :score
+      t.integer :legacy_score
 
       t.timestamps
     end

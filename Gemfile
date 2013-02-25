@@ -11,10 +11,23 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bootstrap-sass'
+gem 'simple_form'
+
+# group :test do
+#   gem 'rspec-rails'
+#   gem 'rb-fsevent'
+#   gem 'growl'
+#   gem 'factory_girl_rails'
+#   gem 'capybara'
+# end
+
+gem 'rspec-rails'
 
 group :test do
-  gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'rb-fsevent'
-  gem 'capybara'
+  gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'growl', '1.0.3'
+  gem 'factory_girl_rails', '4.1.0'
 end

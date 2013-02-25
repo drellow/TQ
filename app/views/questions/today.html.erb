@@ -1,1 +1,25 @@
-<h1><%= @question.body %></h1>
+<div class="row container">
+  <div class="span4">
+    <% unless @question.nil? %>
+    <h1><%= @question.body %></h1>
+    <p><%= @question.info %></p>
+    <% else %>
+    <h1>No question posted today</h1>
+    <% end %>
+  </div>
+
+  <div class="span5">
+    <% if logged_in? %>
+      <% if @current_user.answered_today? %>
+        <h3>You said:</h3>
+        <h2><%= @current_user.users_current_answer.body %></h2>
+      <% else %>
+        <%= render "answers/new" %>
+      <% end %>
+    <% else %>
+      <h2><%= link_to "Sign in to answer today's question!",
+              login_path %></h2>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+
+<div class="row container">
+    <div class="span4">
+        <h3>User your powers for good.</h3>
+    </div>
+    <div class="span5">
+      <%= form_for(@question) do |f| %>
+
+        <%= f.label :body %>
+        <%= f.text_field :body %>
+
+        <%= f.label :info %>
+        <%= f.text_area :info %>
+
+        <%= f.submit %>
+
+      <% end %>
+    </div>
+</div>
