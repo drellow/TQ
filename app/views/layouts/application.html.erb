@@ -10,7 +10,7 @@
 
   <%= render 'layouts/header' %>
 
-  <% if logged_in? %>
+    <% if user_signed_in? %>
       <div class="container greeting" style="background: <%= current_user.color %>">
         <div class="span4">
           <h1> Hi, <%= current_user.username %> </h1>
@@ -21,6 +21,13 @@
         <div class="span4">
           <h1> Hi! </h1>
         </div>
+      </div>
+    <% end %>
+
+    <% unless notice.nil? && alert.nil? %>
+      <div class="container alerts">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
     <% end %>
 

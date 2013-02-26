@@ -1,19 +1,21 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
   include UsersHelper
+  # Setup accessible (or protected) attributes for your model
   attr_accessible :password, :password_confirmation, :username, :email,
-                  :score, :legacy_score
+                  :score, :legacy_score, :remember_me
 
-  has_secure_password
-
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
   validates :password_confirmation, presence: true
 
   before_save do |user|
     user.email = email.downcase
-    user.username = username.downcase
     user.score = 100
     user.legacy_score = 100
   end
@@ -27,11 +29,6 @@ class User < ActiveRecord::Base
   has_many :fan_relationships, :class_name => "Relationship",
            :foreign_key => :hero_id
   has_many :fans, :through => :fan_relationships
-
-  def refresh_token
-    token = SecureRandom.urlsafe_base64
-    self.update_attribute(:session_token, token)
-  end
 
   def answered_today?
     self.users_current_answer.valid?

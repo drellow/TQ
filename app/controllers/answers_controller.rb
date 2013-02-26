@@ -1,8 +1,8 @@
 class AnswersController < ApplicationController
 
   def new
-    if @current_user.answered_today?
-      @answer = @current_user.users_current_answer
+    if current_user.answered_today?
+      @answer = current_user.users_current_answer
       redirect_to '/'
     else
       @answer = Answer.new
@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = @current_user.answers.build(params[:answer])
+    @answer = current_user.answers.build(params[:answer])
 
     if @answer.save
       redirect_to '/'
@@ -21,10 +21,7 @@ class AnswersController < ApplicationController
   end
 
   def update
-    @current_user.users_current_answer.update_attributes(params[:answer])
+    current_user.users_current_answer.update_attributes(params[:answer])
     redirect_to '/'
   end
-
-
-
 end

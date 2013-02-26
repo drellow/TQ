@@ -3,22 +3,6 @@ class UsersController < ApplicationController
   # before_filter :correct_user, only: [:edit, :update]
   before_filter :admin_user, only: [:destroy]
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    user = User.new(params[:user])
-
-    if user.save
-      user.refresh_token
-      cookies[:session_token] = user.session_token
-      redirect_to root_url
-    else
-      redirect_to new_user_path
-    end
-  end
-
   def index
     @users = User.all
   end
@@ -36,7 +20,6 @@ class UsersController < ApplicationController
 
   def show
   end
-
 
   private
 

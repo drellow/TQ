@@ -16,12 +16,12 @@
 
     <% else %>
 
-      <% if logged_in? && Question.question_posted? %>
+      <% if user_signed_in? && Question.question_posted? %>
 
-          <div class="current-user-answer <%= "answered" if @current_user.answered_today? %>">
+          <div class="current-user-answer <%= "answered" if current_user.answered_today? %>">
             <div class="current-user-answered">
               <h3>You said:</h3>
-              <h2><%= @current_user.users_current_answer.body %></h2>
+              <h2><%= current_user.users_current_answer.body %></h2>
               <h4 class="edit-answer">
                 <span class="fake-link">Edit your answer</span>
               </h4>
@@ -34,7 +34,7 @@
       <% elsif Question.question_posted? %>
 
         <h2><%= link_to "Sign in to answer today's question!",
-                login_path %>
+                new_user_session_path %>
         </h2>
 
       <% else %>

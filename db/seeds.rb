@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-names = %w(Frank Phil Tom Bill Patty Fred Sam Tom Topher Charles)
+names = %w(Frank Phil Tom Bill Patty Fred Sam Tommy Topher Charles)
 users = []
 
 #create admin user
 user = User.new(:username => "admin", :email => "admin@bar.com",
-           :password => "foobar", :password_confirmation => "foobar")
+       :password => "foobarish", :password_confirmation => "foobarish")
 user.title = user.new_title
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +
                        (rand(150) + 50).to_s + "," +
@@ -25,7 +25,7 @@ question = user.questions.build(:body => "When is it too late to laminate?").sav
 #create basic users
 10.times do |n|
   user = User.new(:username => names[n], :email => "#{names[n]}@bar.com",
-           :password => "foobar", :password_confirmation => "foobar")
+           :password => "foobarish", :password_confirmation => "foobarish")
   user.title = user.new_title
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +
                        (rand(150) + 50).to_s + "," +

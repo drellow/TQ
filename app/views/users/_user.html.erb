@@ -2,7 +2,7 @@
 <h1 class="user-specific" style="background: <%=user.color%>" %><%= user.username %></h1>
 <%= user.score %>
 <%= user.title %>
-<% if @current_user.admin? && !current_user?(user) %>
+<% if current_user.admin? && !current_user?(user) %>
   <%= button_to "Delete", user, method: :delete,
       data: { confirm: "Really delete #{user.username}?" } %>
 <% end %>
