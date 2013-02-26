@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -10,7 +9,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
@@ -23,4 +22,12 @@ group :test do
   gem 'rb-fsevent', '0.9.1', :require => false
   gem 'growl', '1.0.3'
   gem 'factory_girl_rails', '4.1.0'
+end
+
+group :production do
+  gem 'pg'
+end
+
+group :development do
+  gem 'sqlite3'
 end
