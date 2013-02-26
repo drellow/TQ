@@ -11,6 +11,7 @@ describe "Answering questions" do
 
   context "as a logged-in user" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:question) { FactoryGirl.create(:question) }
 
     before do
       log_in user
@@ -42,7 +43,7 @@ describe "Answering questions" do
       click_button "Answer"
     end
 
-    it { should_not have_button("Answer") }
+    it { should_not have_selector("text-area") }
     it { should have_content("This is my answer") }
   end
 

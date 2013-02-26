@@ -1,0 +1,11 @@
+<% unless Question.todays_answers.empty? %>
+  <% Question.todays_answers.each do |answer| %>
+
+    <div class="user-answer">
+      <div style="background: <%=answer.user.color%>">
+        <h1><%= answer.user.username %> Said:</h1>
+      </div>
+        <h2><%= answer.body %></h2>
+    </div>
+  <% end %>
+<% end %>

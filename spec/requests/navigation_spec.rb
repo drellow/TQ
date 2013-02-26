@@ -23,10 +23,12 @@ describe "Basic page components" do
       it { should have_link("Log out") }
       it { should_not have_link("Log in") }
       it { should_not have_link("Create Question") }
+      it { should_not have_link("Post Answers") }
     end
 
     describe "when admin" do
       let!(:user) { FactoryGirl.create(:user) }
+      let!(:question) { FactoryGirl.create(:question) }
 
       before do
         make_admin(user)
@@ -34,7 +36,8 @@ describe "Basic page components" do
         visit '/'
       end
 
-      it { should have_link("Create Question") }
+      it { should have_link("Update Question") }
+      it { should have_link("Post Answers") }
     end
 
 end

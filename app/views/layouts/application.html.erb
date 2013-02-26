@@ -7,13 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <%= render 'layouts/header' %>
 
-  <div class="container">
-    <% if logged_in? %>
-    <h1> Hi, <%= current_user.username %> </h1>
+  <% if logged_in? %>
+      <div class="container greeting" style="background: <%= current_user.color %>">
+        <div class="span4">
+          <h1> Hi, <%= current_user.username %> </h1>
+        </div>
+      </div>
+    <% else %>
+      <div class="container greeting">
+        <div class="span4">
+          <h1> Hi! </h1>
+        </div>
+      </div>
     <% end %>
-  </div>
 
 <%= yield %>
 

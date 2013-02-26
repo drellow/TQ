@@ -1,13 +1,9 @@
-<% if @current_user.answered_today? %>
-<% answer = @current_user.users_current_answer %>
-<% else %>
-<% answer = Answer.new %>
-<% end %>
-
-<%= form_for(answer) do |f| %>
+<%= form_for(@current_user.users_current_answer,
+    :html => { :class =>  'answer-form' }) do |f| %>
 
   <%= f.text_area :body %>
+  <%= f.hidden_field :question_id, :value => Question.todays_question.id %>
 
-<%= f.submit "Answer" %>
+  <%= f.submit "Answer" %>
 
 <% end %>

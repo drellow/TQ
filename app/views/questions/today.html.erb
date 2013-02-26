@@ -1,25 +1,46 @@
 <div class="row container">
   <div class="span4">
     <% unless @question.nil? %>
-    <h1><%= @question.body %></h1>
-    <p><%= @question.info %></p>
+      <h1><%= @question.body %></h1>
+      <p><%= @question.info %></p>
     <% else %>
-    <h1>No question posted today</h1>
+      <h1>No question posted today</h1>
     <% end %>
   </div>
 
   <div class="span5">
-    <% if logged_in? %>
-      <% if @current_user.answered_today? %>
-        <h3>You said:</h3>
-        <h2><%= @current_user.users_current_answer.body %></h2>
-      <% else %>
-        <%= render "answers/new" %>
-      <% end %>
+    <% if Question.question_posted? &&
+          Question.todays_question.posted_answers %>
+
+      <%= render 'questions/todays_answers' %>
+
     <% else %>
-      <h2><%= link_to "Sign in to answer today's question!",
-              login_path %></h2>
+
+      <% if logged_in? && Question.question_posted? %>
+
+          <div class="current-user-answer <%= "answered" if @current_user.answered_today? %>">
+            <div class="current-user-answered">
+              <h3>You said:</h3>
+              <h2><%= @current_user.users_current_answer.body %></h2>
+              <h4 class="edit-answer">
+                <span class="fake-link">Edit your answer</span>
+              </h4>
+            </div>
+            <div class="current-user-not-answered">
+              <%= render "answers/new" %>
+            </div>
+          </div>
+
+      <% elsif Question.question_posted? %>
+
+        <h2><%= link_to "Sign in to answer today's question!",
+                login_path %>
+        </h2>
+
+      <% else %>
+        <h2>Keep waiting...</h2>
+      <% end %>
+
     <% end %>
   </div>
-
 </div>

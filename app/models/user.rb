@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  include UsersHelper
   attr_accessible :password, :password_confirmation, :username, :email,
                   :score, :legacy_score
 
@@ -32,13 +34,17 @@ class User < ActiveRecord::Base
   end
 
   def answered_today?
-    !!users_current_answer
+    self.users_current_answer.valid?
   end
 
   def users_current_answer
-    self.answers.where('created_at BETWEEN ? AND ?',
-    DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
+    current_answer = self.answers.where('created_at BETWEEN ? AND ?',
+                     DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
+    if current_answer.nil?
+      Answer.new
+    else
+      current_answer
+    end
   end
-
 
 end

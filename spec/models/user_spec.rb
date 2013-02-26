@@ -32,7 +32,7 @@ describe User do
   end
 
   it "should be able to create answers" do
-    q = @user.answers.build(:body => "body!")
+    q = @user.answers.build(:body => "body!", :question_id => 1)
     q.save!
     @user.answers.count.should == 1
   end

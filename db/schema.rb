@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20130224211537) do
     t.string   "body"
     t.text     "info"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "posted_answers"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "relationships", :force => true do |t|

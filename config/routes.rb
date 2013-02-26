@@ -10,4 +10,5 @@ Tq::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/logout', to: 'sessions#destroy', via: :delete
   match '/login', to: 'sessions#new'
+  match '/post_answers', to: 'questions#release'
 end

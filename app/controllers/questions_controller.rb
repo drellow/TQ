@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_filter :admin_user, only: [:new, :edit, :update]
+  before_filter :admin_user, only: [:new, :edit, :update, :release]
 
   def show
   end
@@ -9,20 +9,24 @@ class QuestionsController < ApplicationController
   end
 
   def today
-    @question = todays_question
+    @question = Question.todays_question
   end
 
+  def release
+    Question.todays_question.toggle!(:posted_answers)
+    redirect_to '/'
+  end
 
   def new
-    if todays_question.nil?
+    if Question.todays_question.nil?
       @question = Question.new
     else
-      @question = todays_question
+      @question = Question.todays_question
     end
   end
 
   def update
-    todays_question.update_attributes(params[:question])
+    Question.todays_question.update_attributes(params[:question])
     redirect_to root_path
   end
 
@@ -42,8 +46,4 @@ class QuestionsController < ApplicationController
       redirect_to(root_path) unless current_user.admin?
     end
 
-    def todays_question
-      Question.where('created_at BETWEEN ? AND ?',
-      DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
-    end
 end

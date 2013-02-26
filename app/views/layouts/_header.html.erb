@@ -1,4 +1,4 @@
-<header class="navbar">
+<header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <ul class="nav pull-left">
       <%= link_to "Today's Question", '/' %>
@@ -7,11 +7,15 @@
         <%= link_to "Users", users_path %>
       <% end %>
 
-      <% if current_user && current_user.admin? %>
+      <% if current_user && current_user.admin? && Question.question_posted?%>
+        <%= link_to "Post Answers", post_answers_path %>
+        <%= link_to "Update Question", new_question_path %>
+      <% elsif current_user && current_user.admin? %>
         <%= link_to "Create Question", new_question_path %>
       <% end %>
 
     </ul>
+
     <ul class="nav pull-right">
       <% if logged_in? %>
         <%= link_to "Log out", logout_path, method: "delete" %>
