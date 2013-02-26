@@ -24,6 +24,11 @@ textarea {
   margin-top: 15px;
 }
 
+.left-span-content {
+  // border-right: 1px solid #E0D4D3;
+  box-shadow: 5px 0px 3px -3px #E0D4D3;
+}
+
 .alerts {
   .alert, .notice {
     background: none;
@@ -43,7 +48,6 @@ textarea {
   border-radius: 5px;
   padding-top: 10px;
   box-shadow: 0px 0px 30px 5px #E0D4D3;
-
 }
 
 .user-answer {
