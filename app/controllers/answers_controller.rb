@@ -24,4 +24,23 @@ class AnswersController < ApplicationController
     current_user.users_current_answer.update_attributes(params[:answer])
     redirect_to '/'
   end
+
+  def vote
+    if current_user.score >= 5
+      answer = Answer.find_by_id(params[:answer_id])
+      if params[:score] == "up"
+        answer.score += 5
+        answer.save!
+      else
+        answer.score -= 5
+        answer.save!
+      end
+      current_user.decrement_score
+    else
+      return false
+    end
+    render nothing: true
+  end
+
+
 end

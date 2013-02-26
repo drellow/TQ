@@ -3,7 +3,16 @@
 
     <div class="user-answer">
       <div style="background: <%=answer.user.color%>">
-        <h1><%= answer.user.username %> Said:</h1>
+        <h1 class="answer-header"><%= answer.user.username %> Said:</h1>
+        <span class="answer-header">
+          <%=answer.score%>
+
+          <%= button_to "+", answer_vote_path(answer_id: answer.id,
+              score: "up"), remote: true, method: :post, class: "btn upvote" %>
+          <%= button_to "-", answer_vote_path(answer_id: answer.id,
+              score: "down"), remote: true, method: :post, class: "btn downvote" %>
+
+        </span>
       </div>
         <h2><%= answer.body %></h2>
     </div>

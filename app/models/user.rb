@@ -34,6 +34,11 @@ class User < ActiveRecord::Base
     self.users_current_answer.valid?
   end
 
+  def decrement_score
+    self.score -= 5
+    self.save!
+  end
+
   def users_current_answer
     current_answer = self.answers.where('created_at BETWEEN ? AND ?',
                      DateTime.now.beginning_of_day, DateTime.now.end_of_day).first

@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <div class="container greeting" style="background: <%= current_user.color %>">
+    <div class="span12">
+      <h1>Hi, <%= current_user.username %>. Your score is: <%= current_user.score %></h1>
+    </div>
+  </div>
+<% else %>
+  <div class="container greeting">
+    <div class="span12">
+      <h1> Hi! </h1>
+    </div>
+  </div>
+<% end %>

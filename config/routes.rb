@@ -8,4 +8,5 @@ Tq::Application.routes.draw do
 
   root :to => 'questions#today'
   match '/post_answers', to: 'questions#release'
+  match '/answer_vote', to: 'answers#vote'
 end

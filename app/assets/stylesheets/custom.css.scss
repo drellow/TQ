@@ -106,3 +106,13 @@ textarea {
   display: block;
 }
 
+.answer-header {
+  padding: 0px;
+  margin: 0px;
+  h1 {
+    float: left;
+  }
+  span {
+    float: right;
+  }
+}

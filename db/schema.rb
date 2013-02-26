@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(:version => 20130226011529) do
     t.integer  "user_id"
     t.integer  "question_id"
     t.text     "body"
-    t.integer  "score"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "score",       :default => 25
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "questions", :force => true do |t|
