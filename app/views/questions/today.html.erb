@@ -8,7 +8,7 @@
     <% end %>
   </div>
 
-  <div class="span5">
+  <div class="span7">
     <% if Question.question_posted? &&
           Question.todays_question.posted_answers %>
 
@@ -22,9 +22,7 @@
             <div class="current-user-answered">
               <h3>You said:</h3>
               <h2><%= current_user.users_current_answer.body %></h2>
-              <h4 class="edit-answer">
-                <span class="fake-link">Edit your answer</span>
-              </h4>
+              <span class="edit-answer fake-link">Edit your answer</span>
             </div>
             <div class="current-user-not-answered">
               <%= render "answers/new" %>

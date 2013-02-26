@@ -3,8 +3,8 @@ FactoryGirl.define do
   factory :user do
     sequence(:username) { |n| "person#{n}" }
     sequence(:email) { |n| "person#{n}@bar.com" }
-    password "foobar"
-    password_confirmation "foobar"
+    password "foobarish"
+    password_confirmation "foobarish"
 
     factory :admin do
       admin true
@@ -18,7 +18,7 @@ FactoryGirl.define do
 
   factory :answer do
     body "It is never too late to laminate"
-    user_id 2
+    user_id 1
     question_id 1
   end
 

@@ -15,6 +15,15 @@ textarea {
   box-shadow: inset 0px 0px 30px 5px #ECE1EC;
 }
 
+.span5 {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.span7 {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
 .alerts {
   .alert, .notice {
     background: none;
@@ -76,6 +85,17 @@ textarea {
 
 .body-content {
   margin: auto;
+}
+
+.fake-link {
+  color: black;
+  font-size: 12;
+}
+
+.fake-link:hover {
+  text-decoration: none;
+  color: gray;
+  cursor: pointer;
 }
 
 .current-user-answered, .answered .current-user-not-answered {
