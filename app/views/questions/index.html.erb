@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row span11">
+    <% @questions.each do |question| %>
+
+      <span>
+        <%= question.body %>
+        <%= link_to "Read the answers!", question %>
+      </span>
+      <h3><%= question.answers.count %> answers.</h3>
+
+
+    <% end %>
+  </div>
+</div>

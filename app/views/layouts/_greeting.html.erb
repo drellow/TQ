@@ -3,11 +3,15 @@
     <div class="span11">
       <h1>Hi, <%= current_user.username %>.</h1>
         <span class="greeting_info">
-          You have
-          <span id="current_user_score">
-            <%= current_user.score %>
-          </span>
-          points to give away.
+          <% if current_user.score > 0 %>
+            You have
+            <span id="current_user_score">
+              <%= current_user.score %>
+            </span>
+            points to give (or take) away.
+          <% else %>
+            Answer questions to get more points.
+          <% end %>
         </span>
     </div>
   </div>

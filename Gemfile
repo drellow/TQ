@@ -15,14 +15,6 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
 
-# group :test do
-#   gem 'rspec-rails'
-#   gem 'rb-fsevent'
-#   gem 'growl'
-#   gem 'factory_girl_rails'
-#   gem 'capybara'
-# end
-
 gem 'rspec-rails'
 
 group :test do

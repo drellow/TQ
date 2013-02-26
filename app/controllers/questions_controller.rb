@@ -3,9 +3,11 @@ class QuestionsController < ApplicationController
   before_filter :admin_user, only: [:new, :edit, :update, :release]
 
   def show
+
   end
 
   def index
+    @questions = Question.all
   end
 
   def today

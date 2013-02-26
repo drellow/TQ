@@ -1,0 +1,16 @@
+<% unless Question.todays_answers.empty? %>
+  <% Question.todays_answers.each do |answer| %>
+
+    <div class="user-answer">
+      <div style="background: <%=answer.user.color%>">
+        <h1 class="answer-header"><%= answer.user.username %> Said:</h1>
+        <span class="answer-header">
+          <span class="user-score" id="user<%= answer.user.id %>-score">
+            <%=answer.score%>
+          </span>
+        </span>
+      </div>
+        <h2><%= answer.body %></h2>
+    </div>
+  <% end %>
+<% end %>

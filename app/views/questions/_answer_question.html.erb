@@ -1,0 +1,10 @@
+<div class="current-user-answer <%= "answered" if current_user.answered_today? %>">
+  <div class="current-user-answered">
+    <h3>You said:</h3>
+    <h2><%= current_user.users_current_answer.body %></h2>
+    <span class="edit-answer fake-link">Edit your answer</span>
+  </div>
+  <div class="current-user-not-answered">
+    <%= render "answers/new" %>
+  </div>
+</div>
