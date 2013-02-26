@@ -9,7 +9,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
