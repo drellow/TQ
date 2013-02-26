@@ -35,11 +35,13 @@ class AnswersController < ApplicationController
         answer.score -= 5
         answer.save!
       end
-      current_user.decrement_score
-    else
-      return false
+      current_user.score -= 5
+      current_user.save!
     end
-    render nothing: true
+    render :json => {
+      answer_score: answer.score,
+      user_score: current_user.score
+    }
   end
 
 

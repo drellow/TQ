@@ -10,14 +10,10 @@ class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :username, :email,
                   :score, :legacy_score, :remember_me
 
-  validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
-  validates :password_confirmation, presence: true
 
   before_save do |user|
     user.email = email.downcase
-    user.score = 100
-    user.legacy_score = 100
   end
 
   has_many :stars
@@ -32,11 +28,6 @@ class User < ActiveRecord::Base
 
   def answered_today?
     self.users_current_answer.valid?
-  end
-
-  def decrement_score
-    self.score -= 5
-    self.save!
   end
 
   def users_current_answer

@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = @current_user.questions.build(params[:question])
+    question = current_user.questions.build(params[:question])
 
     if question.save
       redirect_to root_path

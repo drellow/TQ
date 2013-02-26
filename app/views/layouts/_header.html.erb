@@ -8,7 +8,7 @@
       <% end %>
 
       <% if current_user && current_user.admin? && Question.question_posted?%>
-        <%= link_to "Post Answers", post_answers_path %>
+        <%= link_to "Post Answers", post_answers_path, :method => :post %>
         <%= link_to "Update Question", new_question_path %>
       <% elsif current_user && current_user.admin? %>
         <%= link_to "Create Question", new_question_path %>

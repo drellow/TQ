@@ -5,12 +5,16 @@
       <div style="background: <%=answer.user.color%>">
         <h1 class="answer-header"><%= answer.user.username %> Said:</h1>
         <span class="answer-header">
-          <%=answer.score%>
+          <span class="user-score" id="user<%= answer.user.id %>-score">
+            <%=answer.score%></span>
 
           <%= button_to "+", answer_vote_path(answer_id: answer.id,
-              score: "up"), remote: true, method: :post, class: "btn upvote" %>
+              score: "up"), remote: true, method: :post,
+              form_class: "up-button", class: "btn upvote" %>
+
           <%= button_to "-", answer_vote_path(answer_id: answer.id,
-              score: "down"), remote: true, method: :post, class: "btn downvote" %>
+              score: "down"), remote: true, method: :post,
+              form_class: "down-button",class: "btn downvote" %>
 
         </span>
       </div>

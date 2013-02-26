@@ -2,17 +2,11 @@ class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :username
-      # email column created by devise migration!
-      # t.string :email
       t.string :color
-      # following columns unecessary w/ devise
-      # t.string :password_confirmation
-      # t.string :password_digest
-      # t.string :session_token
       t.boolean :admin
       t.string :title
-      t.integer :score
-      t.integer :legacy_score
+      t.integer :score,        :default => 100
+      t.integer :legacy_score, :default => 100
 
       t.timestamps
     end

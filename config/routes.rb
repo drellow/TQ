@@ -4,9 +4,12 @@ Tq::Application.routes.draw do
 
   resources :users, :only => [:index, :edit, :update, :destroy]
   resources :questions
-  resources :answers
+  post '/post_answers', to: 'questions#release'
+
+  resources :answers do
+    post 'vote', to: 'answers#vote'
+  end
 
   root :to => 'questions#today'
-  match '/post_answers', to: 'questions#release'
-  match '/answer_vote', to: 'answers#vote'
+
 end

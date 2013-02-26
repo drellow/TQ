@@ -50,12 +50,12 @@ ActiveRecord::Schema.define(:version => 20130226011529) do
     t.string   "color"
     t.boolean  "admin"
     t.string   "title"
-    t.integer  "score"
-    t.integer  "legacy_score"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.integer  "score",                  :default => 100
+    t.integer  "legacy_score",           :default => 100
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.string   "email",                  :default => "",  :null => false
+    t.string   "encrypted_password",     :default => "",  :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
