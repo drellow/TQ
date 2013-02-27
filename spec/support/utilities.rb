@@ -1,5 +1,6 @@
 def log_in(user)
-  visit new_user_session_path
+  visit '/'
+  click_link "Log in"
   fill_in "Email",    with: user.email
   fill_in "Password", with: user.password
   click_button "Sign in"
@@ -7,4 +8,8 @@ end
 
 def make_admin(user)
   user.toggle!(:admin)
+end
+
+def post_answers
+  Question.todays_question.toggle!(:posted_answers)
 end

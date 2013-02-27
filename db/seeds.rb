@@ -8,6 +8,7 @@
 
 names = %w(Frank Phil Tom Bill Patty Fred Sam Tommy Topher Charles)
 users = []
+answers = []
 
 #create admin user
 admin = User.new(:username => "christopher", :email => "admin@bar.com",
@@ -41,6 +42,13 @@ end
 
 20.times do |n|
   10.times do |i|
-    users[i].answers.build(:body => "I don't know!", :question_id => n).save!
+    answer = users[i].answers.build(:body => "I don't know!", :question_id => n).save!
+    answers << answer
   end
 end
+
+
+5.times do |i|
+  Question.first.answers.first.comments.build(:user_id => (i + 1), :body => "My comment!").save!
+end
+
