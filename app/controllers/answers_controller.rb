@@ -3,10 +3,10 @@ class AnswersController < ApplicationController
   def new
     if current_user.answered_today?
       @answer = current_user.users_current_answer
-      redirect_to '/'
+      redirect_to root_url
     else
       @answer = Answer.new
-      redirect_to '/'
+      redirect_to root_url
     end
   end
 
@@ -14,15 +14,15 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(params[:answer])
 
     if @answer.save
-      redirect_to '/'
+      redirect_to root_url
     else
-      redirect_to '/'
+      redirect_to root_url
     end
   end
 
   def update
     current_user.users_current_answer.update_attributes(params[:answer])
-    redirect_to '/'
+    redirect_to root_url
   end
 
   def vote

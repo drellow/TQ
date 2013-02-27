@@ -1,22 +1,21 @@
-
 <div class="row container">
-    <div class="span11">
-      <%= link_to "Back to archives", questions_path %>
-      <% unless Question.todays_answers.empty? %>
-        <% Question.todays_answers.each do |answer| %>
+  <div class="span4 left-span-content">
+    <% unless @question.nil? %>
+      <h1><%= @question.body %></h1>
+      <p><%= @question.info %></p>
+    <% else %>
+      <h1>No question.</h1>
+    <% end %>
+  </div>
 
-          <div class="user-answer">
-            <div style="background: <%=answer.user.color%>">
-              <h1 class="answer-header"><%= answer.user.username %> Said:</h1>
-              <span class="answer-header">
-                <span class="user-score" id="user<%= answer.user.id %>-score">
-                  <%=answer.score%>
-                </span>
-              </span>
-            </div>
-              <h2><%= answer.body %></h2>
-          </div>
-        <% end %>
+  <div class="span7">
+    <% unless @question.answers.empty? %>
+      <% @question.answers.each do |answer| %>
+
+        <%= render :partial => 'answers/uneditable_answer',
+                   :locals => { :answer => answer } %>
+
       <% end %>
-</div>
+    <% end %>
+  </div>
 </div>

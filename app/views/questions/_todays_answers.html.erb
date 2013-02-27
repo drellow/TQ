@@ -4,26 +4,27 @@
     <div class="user-answer">
 
 
-      <div style="background: <%=answer.user.color%>">
-        <span class="answer-header"><%= answer.user.username %> Said:
+      <div class="answer-header" style="background: <%=answer.user.color%>">
+        <span><%= answer.user.username %>:
           <span class="user-score" id="user<%= answer.user.id %>-score">
             <%=answer.score%>
           </span>
 
+          <span class="answer-buttons">
           <%= button_to "+", answer_vote_path(answer_id: answer.id,
               score: "up"), remote: true, method: :post,
-              form_class: "vote-form", class: "btn vote" %>
+              form_class: "vote-form", class: "btn" %>
 
           <%= button_to "-", answer_vote_path(answer_id: answer.id,
               score: "down"), remote: true, method: :post,
-              form_class: "vote-form", class: "btn vote" %>
+              form_class: "vote-form", class: "btn" %>
+          </span>
 
         </span>
       </div>
 
-
       <div class="answer-body">
-        <h2><%= answer.body %></h2>
+        <p><%= answer.body %></p>
       </div>
 
       <div class="comment-toggle">
@@ -33,16 +34,14 @@
       </div>
 
       <div class="comments">
-        <% answer.comments.each do |comment| %>
-          <div class="comment">
-            <span class="comment-title">
-              <%= comment.user.username %> said:
-              <%= comment.body %>
-            </span>
-          </div>
-        <% end %>
+        <div class="comment-collection">
+        <%= render :partial => 'questions/comment',
+                   :collection => answer.comments %>
+        </div>
 
-        <%= form_for([answer, answer.comments.build], :remote => true) do |f| %>
+        <%= form_for([answer, answer.comments.build],
+            :remote => true, :class => "new_comment" ) do |f| %>
+
           <%= f.text_area :body, :class => "comment_field" %>
           <%= f.submit "Add Comment", :class => "pretty-button" %>
         <% end %>
@@ -50,7 +49,6 @@
           <%=answer.comments.count %> comments
         </span>
       </div>
-
 
     </div>
   <% end %>

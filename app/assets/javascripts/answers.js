@@ -1,9 +1,16 @@
 
 $(document).ready(function() {
 
+  var commentsBox = $($('.comment')[0]).clone();
+
   $('.answer-form').bind('ajax:success', function() {
     $('.current-user-answer').addClass('answered');
   });
+
+  $('.new_comment').bind('ajax:success', function(event, data) {
+    $(this).closest('.comments').find('.comment-collection').append(data);
+    $(this).find('textarea').val('');
+  })
 
   $('.edit-answer').click(function() {
     $('.current-user-answer').removeClass('answered');
