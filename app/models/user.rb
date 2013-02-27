@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :stars
   has_many :questions
   has_many :answers
+  has_many :comments, :through => :answers
   has_many :hero_relationships, :class_name => "Relationship",
            :foreign_key => :fan_id
   has_many :heroes, :through => :hero_relationships

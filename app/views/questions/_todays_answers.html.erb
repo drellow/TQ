@@ -2,23 +2,56 @@
   <% Question.todays_answers.each do |answer| %>
 
     <div class="user-answer">
+
+
       <div style="background: <%=answer.user.color%>">
-        <h1 class="answer-header"><%= answer.user.username %> Said:</h1>
-        <span class="answer-header">
+        <span class="answer-header"><%= answer.user.username %> Said:
           <span class="user-score" id="user<%= answer.user.id %>-score">
-            <%=answer.score%></span>
+            <%=answer.score%>
+          </span>
 
           <%= button_to "+", answer_vote_path(answer_id: answer.id,
               score: "up"), remote: true, method: :post,
-              form_class: "up-button", class: "btn upvote" %>
+              form_class: "vote-form", class: "btn vote" %>
 
           <%= button_to "-", answer_vote_path(answer_id: answer.id,
               score: "down"), remote: true, method: :post,
-              form_class: "down-button",class: "btn downvote" %>
+              form_class: "vote-form", class: "btn vote" %>
 
         </span>
       </div>
+
+
+      <div class="answer-body">
         <h2><%= answer.body %></h2>
+      </div>
+
+      <div class="comment-toggle">
+        <span class="show-comments fake-link">Click to show all
+          <%=answer.comments.count %> comments
+        </span>
+      </div>
+
+      <div class="comments">
+        <% answer.comments.each do |comment| %>
+          <div class="comment">
+            <span class="comment-title">
+              <%= comment.user.username %> said:
+              <%= comment.body %>
+            </span>
+          </div>
+        <% end %>
+
+        <%= form_for([answer, answer.comments.build], :remote => true) do |f| %>
+          <%= f.text_area :body, :class => "comment_field" %>
+          <%= f.submit "Add Comment", :class => "pretty-button" %>
+        <% end %>
+        <span class="fake-link hide-comments">Click to hide
+          <%=answer.comments.count %> comments
+        </span>
+      </div>
+
+
     </div>
   <% end %>
 <% end %>

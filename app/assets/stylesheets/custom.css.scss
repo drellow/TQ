@@ -15,6 +15,26 @@ textarea {
   box-shadow: inset 0px 0px 30px 5px #ECE1EC;
 }
 
+
+
+.vote-form {
+  div {
+    display: inline;
+  }
+  display: inline;
+  input {
+    width   : 80px;
+    background  : none;
+    cursor  : pointer;
+    font-family : 'voltaeftu-regular',Times New Roman;
+    font-size   : 16px;
+    color   : #fff;
+    border  : none;
+    margin      : 0px;
+    padding     : 0px;
+  }
+}
+
 .footer {
     box-shadow: none;
     background-color: black;
@@ -54,7 +74,13 @@ textarea {
   list-style: none;
 }
 
+.span7 {
+  margin-right: 10px;
+  width: 580px;
+}
+
 .container {
+  padding: 0px;
   background: white;
   border-radius: 5px;
   padding-top: 10px;
@@ -62,8 +88,11 @@ textarea {
 }
 
 .user-answer {
+  width: 100%;
   border-radius: 5px;
-  outline: 1px solid #C7FFFD;
+  background: #E9FCFC;
+  outline: 1px solid lightGray;
+  margin-bottom: 10px;
   h1 {
     padding: 5px;
   }
@@ -71,7 +100,7 @@ textarea {
 
 .user-specific {
   border-radius: 2px;
-  outline: 1px solid #C7FFFD;
+  outline: 1px solid #E9FCFC;
   h1 {
     margin: 5px;
   }
@@ -113,20 +142,9 @@ textarea {
   cursor: pointer;
 }
 
-.current-user-answered, .answered .current-user-not-answered {
-  display: none;
-}
-
-.current-user-not-answered, .answered .current-user-answered {
-  display: block;
-}
-
 .answer-header {
-  padding: 0px;
-  margin: 0px;
-  h1 {
-    float: left;
-  }
+  margin: 10px;
+  font-size: 20px;
   span {
     float: right;
   }
@@ -162,4 +180,22 @@ textarea {
 }.pretty-button:active {
   position:relative;
   top:1px;
+}
+
+
+.current-user-answered, .answered .current-user-not-answered {
+  display: none;
+}
+
+.current-user-not-answered, .answered .current-user-answered {
+  display: block;
+}
+
+
+.comment-toggle, .comments-on.comments {
+  display: block;
+}
+
+.comments, .comments-on.comment-toggle {
+  display: none;
 }
