@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_filter :admin_user, only: [:new, :edit, :update, :release]
 
   def show
-
+    @question = Question.find(params[:id])
   end
 
   def index

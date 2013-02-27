@@ -1,0 +1,6 @@
+<span class="comment-title">
+  <%= comment.user.username %> said:
+</span>
+<p class="comment-body">
+  <%=  sanitize(simple_format(comment.body), :tags => %w(br p) )%>
+</p>

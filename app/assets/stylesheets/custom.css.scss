@@ -2,7 +2,37 @@
 // @import "boostrap-styles";
 
 body {
- background: url('/assets/white_carbon.png');
+ background: url('/assets/shl.png');
+}
+
+a {
+  color: white;
+  padding: 10px;
+}
+a:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+
+.new_comment {
+  textarea {
+    resize: none;
+    width: 90%;
+    margin: 20px;
+    height: 180px;
+    vertical-align: center;
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+  }
+  input {
+    float: right;
+    margin-right: 20px;
+    height: 20px;
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+  }
 }
 
 textarea {
@@ -15,7 +45,10 @@ textarea {
   box-shadow: inset 0px 0px 30px 5px #ECE1EC;
 }
 
-
+.form-actions {
+  background: #413D3D;
+  border: none;
+}
 
 .vote-form {
   div {
@@ -52,11 +85,10 @@ textarea {
 }
 .span7 {
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 0px;
 }
 
 .left-span-content {
-  // border-right: 1px solid #E0D4D3;
   box-shadow: 5px 0px 3px -3px #E0D4D3;
 }
 
@@ -81,19 +113,23 @@ textarea {
 
 .container {
   padding: 0px;
-  background: white;
+  background: black;
+  color: lightGray;
   border-radius: 5px;
   padding-top: 10px;
-  box-shadow: 0px 0px 30px 5px #E0D4D3;
+  h1 {
+    color: lightGray;
+  }
 }
 
 .user-answer {
   width: 100%;
   border-radius: 5px;
-  background: #E9FCFC;
-  outline: 1px solid lightGray;
+  background: #413D3D;
   margin-bottom: 10px;
+  color: black;
   h1 {
+    color: black;
     padding: 5px;
   }
 }
@@ -107,6 +143,10 @@ textarea {
 }
 
 .greeting {
+  h1 {
+    color: black;
+  }
+  color: #413D3D;
   margin-top: 50px;
   margin-bottom: 20px;
   border-top-right-radius: 0px;
@@ -142,12 +182,21 @@ textarea {
   cursor: pointer;
 }
 
+.answer-body {
+  font-size: 14px;
+  padding: 10px;
+  color: lightGray;
+}
+
+.answer-buttons {
+  float: right;
+}
+
 .answer-header {
-  margin: 10px;
-  font-size: 20px;
-  span {
-    float: right;
-  }
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: lightGray;
 }
 
 .answer-form {
@@ -182,6 +231,18 @@ textarea {
   top:1px;
 }
 
+
+.comments {
+  padding: 10px;
+  color: gray;
+  .comment-title {
+    color: lightGray;
+  }
+}
+
+.show-comments {
+  padding: 10px;
+}
 
 .current-user-answered, .answered .current-user-not-answered {
   display: none;
