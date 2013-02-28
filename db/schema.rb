@@ -55,15 +55,15 @@ ActiveRecord::Schema.define(:version => 20130226223624) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
-    t.string   "color"
+    t.string   "color",                  :default => "#B1ABAB"
     t.boolean  "admin"
     t.string   "title"
     t.integer  "score",                  :default => 100
     t.integer  "legacy_score",           :default => 100
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.string   "email",                  :default => "",  :null => false
-    t.string   "encrypted_password",     :default => "",  :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.string   "email",                  :default => "",        :null => false
+    t.string   "encrypted_password",     :default => "",        :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
