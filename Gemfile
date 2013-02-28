@@ -15,6 +15,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'jquery-simplecolorpicker-rails'
 gem 'rspec-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test do
   gem 'guard-rspec'
@@ -30,4 +32,5 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem "letter_opener"
 end

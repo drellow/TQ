@@ -3,6 +3,9 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :username
       t.string :color,         :default => "#B1ABAB"
+      t.string :provider
+      t.string :access_token
+      t.string :uid
       t.boolean :admin
       t.string :title
       t.integer :score,        :default => 100
