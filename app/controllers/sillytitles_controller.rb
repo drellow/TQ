@@ -4,4 +4,5 @@ class SillytitlesController < ApplicationController
     title = UsersHelper.new_title
     render :json => {:title => title}
   end
+
 end

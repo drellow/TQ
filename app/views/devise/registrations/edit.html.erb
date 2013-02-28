@@ -1,8 +1,9 @@
 <div class="row container">
     <div class="span4">
-        <h3>Go ahead and edit your page.</h3>
+        <h3>Go ahead, change things.</h3>
     </div>
     <div class="span7">
+      <div class="right-span-content">
       <%= simple_form_for(resource,
           :as => resource_name,
           :url => registration_path(resource_name),
@@ -11,7 +12,8 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :email, :required => true, :autofocus => true %>
+          <%= f.input :email, :required => true,
+                      :autofocus => true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -20,11 +22,23 @@
           <%= f.input :title, :input_html =>
                      {:value => UsersHelper.new_title },
                       :id => "title" %>
+
           <span class="fake-link new-title">Randomize Title</span>
 
-          <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+          <%= f.input :color, collection: User::MY_COLORS,
+                      selected: User::MY_COLORS[:green] %>
+          </br>
+          </br>
+
+          <%= f.input :password,
+                      :autocomplete => "off",
+                      :hint => " if changing password.",
+                      :required => false %>
+
           <%= f.input :password_confirmation, :required => false %>
-          <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+          <%= f.input :current_password,
+                      :hint => " to, like, confirm.",
+                      :required => true %>
         </div>
 
         <div class="form-actions">
@@ -35,5 +49,6 @@
       <h3>Cancel my account</h3>
 
       <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+      </div>
     </div>
 </div>
