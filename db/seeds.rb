@@ -13,7 +13,7 @@ answers = []
 #create admin user
 admin = User.new(:username => "christopher", :email => "admin@bar.com",
        :password => "foobarish", :password_confirmation => "foobarish")
-admin.title = admin.new_title
+admin.title = UsersHelper.new_title
   admin.color = "rgb(" + (rand(150) + 50).to_s + "," +
                        (rand(150) + 50).to_s + "," +
                        (rand(150) + 50).to_s + ")"
@@ -32,10 +32,10 @@ end
 10.times do |n|
   user = User.new(:username => names[n], :email => "#{names[n]}@bar.com",
            :password => "foobarish", :password_confirmation => "foobarish")
-  user.title = user.new_title
+  user.title = UsersHelper.new_title
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +
-                       (rand(150) + 50).to_s + "," +
-                       (rand(150) + 50).to_s + ")"
+                        (rand(150) + 50).to_s + "," +
+                        (rand(150) + 50).to_s + ")"
   users << user
   user.save!
 end
