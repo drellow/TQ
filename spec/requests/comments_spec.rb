@@ -17,8 +17,10 @@ describe "Adding comments" do
 
     it "should allow user to comment on answers" do
       expect do
-        click_link "Add comment"
-        fill_in "Comment", with: "My Comment."
+        puts page.html
+        find('.show-comments').click
+        fill_in "comment[body]", with: "My Comment."
+        click_button "Add Comment"
       end.to change { user.comments.count }.by(1)
     end
   end

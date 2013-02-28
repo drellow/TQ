@@ -3,15 +3,21 @@
         <h3>People will like you more after signing up.</h3>
     </div>
     <div class="span5">
+      <div class="sign-up">
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
           <%= f.input :email, :required => true, :autofocus => true %>
           <%= f.input :username, :required => true, :autofocus => true %>
+          <%= f.input :title, :input_html =>
+                     {:value => UsersHelper.new_title },
+                      :id => "title" %>
+          <span class="fake-link new-title">Randomize Title</span>
           <%= f.input :password, :required => true %>
           <%= f.input :password_confirmation, :required => true %>
         </div>
+
 
         <div class="form-actions">
           <%= f.button :submit, "Sign up" %>

@@ -5,6 +5,7 @@ Tq::Application.routes.draw do
   resources :users, :only => [:index, :edit, :update, :destroy]
   resources :questions
   post '/post_answers', to: 'questions#release'
+  get '/silly_title', to: 'sillytitles#new'
 
   resources :answers do
     post 'vote', to: 'answers#vote'

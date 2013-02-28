@@ -5,6 +5,7 @@
 
       <% if user_signed_in? %>
         <%= link_to "Users", users_path %>
+        <%= link_to "Profile", edit_user_registration_path %>
       <% end %>
 
       <% if current_user && current_user.admin? && Question.question_posted?%>
