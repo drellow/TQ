@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20130226223624) do
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "color",                  :default => "#B1ABAB"
+    t.string   "provider"
+    t.string   "uid"
     t.boolean  "admin"
     t.string   "title"
     t.integer  "score",                  :default => 100

@@ -3,28 +3,36 @@
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav pull-left">
-        <%= link_to "Today's Question", '/' %>
-
+        <% tq = TqHelper.new_tq %>
+        <li class="logo">
+        <%= link_to tq, '/' %>
+        </li>
         <% if user_signed_in? %>
-          <%= link_to "Users", users_path %>
-          <%= link_to "Profile", edit_user_registration_path %>
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Profile",
+            edit_user_registration_path %></li>
         <% end %>
 
         <% if current_user && current_user.admin? && Question.question_posted?%>
-          <%= link_to "Post Answers", post_answers_path, :method => :post %>
-          <%= link_to "Update Question", new_question_path %>
+          <li><%= link_to "Post Answers",
+                post_answers_path, :method => :post %></li>
+          <li><%= link_to "Update Question",
+                new_question_path %></li>
         <% elsif current_user && current_user.admin? %>
-          <%= link_to "Create Question", new_question_path %>
+          <li><%= link_to "Create Question",
+                new_question_path %></li>
         <% end %>
 
       </ul>
 
       <ul class="nav pull-right">
         <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
+          <li><%= link_to "Log out", destroy_user_session_path,
+                :method => :delete %></li>
         <% else %>
-          <%= link_to "Log in", new_user_session_path %>
-          <%= link_to "Sign up", new_user_registration_path %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Sign up",
+                new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>
