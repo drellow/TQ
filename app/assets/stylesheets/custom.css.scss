@@ -111,6 +111,14 @@ textarea {
   width: 580px;
 }
 
+.new-title {
+  padding: 5px;
+  margin-left: 110px;
+  font-size: 14px;
+  color: lightGray;
+}
+
+
 .container {
   padding: 0px;
   background: black;
@@ -171,16 +179,28 @@ textarea {
   margin: auto;
 }
 
-.fake-link {
-  color: black;
-  font-size: 12;
-}
+// .fake-link {
+//   color: black;
+//   font-size: 12;
+// }
 
+// .fake-link:hover {
+//   text-decoration: none;
+//   color: gray;
+//   cursor: pointer;
+// }
+
+
+.fake-link {
+  color: white;
+  padding: 10px;
+}
 .fake-link:hover {
   text-decoration: none;
   color: gray;
   cursor: pointer;
 }
+
 
 .answer-body {
   font-size: 14px;
@@ -250,7 +270,33 @@ textarea {
 
 .current-user-not-answered, .answered .current-user-answered {
   display: block;
+
 }
+
+.current-user-answer {
+  background: #413D3D;
+  padding: 10px;
+  border-radius: 3px;
+    textarea {
+    resize: none;
+    width: 90%;
+    margin: 20px;
+    height: 180px;
+    vertical-align: center;
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+  }
+  input {
+    float: right;
+    margin-right: 20px;
+    height: 20px;
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+
 
 
 .comment-toggle, .comments-on.comments {

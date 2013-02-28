@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    current_user.update_attributes(params)
   end
 
   def destroy
