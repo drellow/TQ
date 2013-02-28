@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.simplecolorpicker.js
 
 $(document).ready(function() {
 
@@ -51,4 +52,9 @@ $(document).ready(function() {
     $(this).parent().removeClass('comments-on');
     $(this).parent().parent().find('.comment-toggle').removeClass('comments-on');
   })
+
+  $('select[name="colorpicker"]').simplecolorpicker();
+
+
+  $('select[name="user[color]"]').simplecolorpicker();
 });

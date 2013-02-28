@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   include UsersHelper
   # Setup accessible (or protected) attributes for your model
   attr_accessible :password, :password_confirmation, :username, :email,
-                  :score, :legacy_score, :remember_me
+                  :score, :legacy_score, :remember_me, :title, :color
 
   validates :username, presence: true, uniqueness: true
 
@@ -40,5 +40,56 @@ class User < ActiveRecord::Base
       current_answer
     end
   end
+
+  MY_COLORS = {
+  green_face:       '#19DD89',
+  frozen:           '#BAE4E5',
+  dont:             '#E6F8BA',
+  pretty:           '#9CC4E4',
+  intense_blue:     '#0099FF',
+  bold_green:       '#51b749',
+  sick_orang:       '#FFC48C',
+  kitten_nose:      '#FFD0D4',
+  lilac:            '#EFE3F3',
+  desert_wind:      '#E9ECD9',
+  chariot:          '#FFDBC4',
+  gray:             '#e1e1e1',
+  asix:             '#AAAAAA',
+  rose:             '#FD0E67',
+  vaseline:         '#EBFFC6',
+  pure:             '#F2F0FF',
+  glow:             '#43B3AE',
+  lightness:        '#D5FBFE',
+  comfort:          '#E1E79E',
+  fish:             '#D6DAA8',
+  hopital:          '#9ECBE1',
+  booklight:        '#C4BBA9',
+  whitetrash:       '#F9F2E7',
+  northern_lights:  '#97CC91',
+  moondrops:        '#ABBD99',
+  entranced:        '#EBD3ED',
+  gareen:           '#339999',
+  fiftiesgreen:     '#44AF69',
+  eden:             '#A0C55F',
+  one_candle:       '#FEF7F8',
+  mint:             '#B5FFCE',
+  revelations:      '#A8D26E',
+  rainforest:       '#9AAB9B',
+  bluer:            '#EBF5FF',
+  jade:             '#84AA97',
+  buttercake:       '#FFED8F',
+  blueyou:          '#85CCF8',
+  prettyb:          '#BFE5FF',
+  prettypink:       '#E24864',
+  pink:             '#FF3394',
+  words:            '#C981C7',
+  voice:            '#BC92F0',
+  fuck:             '#2099DA',
+  notwhite:         '#9ED3F0',
+  earae:            '#F6C0E3',
+  eat:              '#9CC4CD',
+  aeteat:           '#BBE4E6',
+  aeeat:            '#81A89D',
+  }
 
 end

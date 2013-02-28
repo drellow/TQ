@@ -13,7 +13,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise'
-
+gem 'jquery-simplecolorpicker-rails'
 gem 'rspec-rails'
 
 group :test do
