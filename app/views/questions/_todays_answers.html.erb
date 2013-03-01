@@ -1,5 +1,7 @@
-<% unless Question.todays_answers.empty? %>
-  <% Question.todays_answers.each do |answer| %>
+<%# unless Question.todays_answers(current_user).empty? %>
+  <%#Question.todays_answers(current_user).each do |answer| %>
+<% unless sorted_answers.empty? %>
+  <% sorted_answers.each do |answer| %>
 
     <div class="user-answer">
 
@@ -7,9 +9,8 @@
       <div class="answer-header" style="background: <%=answer.user.color%>">
         <span><%= answer.user.username %>:
           <span class="user-score" id="user<%= answer.user.id %>-score">
-            <%=answer.score%>
+            <%=answer.score%> points.
           </span>
-
           <span class="answer-buttons">
           <%= button_to "+", answer_vote_path(answer_id: answer.id,
               score: "up"), remote: true, method: :post,
@@ -19,6 +20,16 @@
               score: "down"), remote: true, method: :post,
               form_class: "vote-form", class: "btn" %>
           </span>
+          <br>
+          <span class="title">
+            <%= answer.user.title %>
+          </span>
+
+          <% if current_user.provider == "facebook" && current_user.friends_with?(answer.user) %>
+            <span class="fb-friend">
+                  Your friend.
+            </span>
+          <% end %>
 
         </span>
       </div>
@@ -28,7 +39,7 @@
       </div>
 
       <div class="comment-toggle">
-        <span class="show-comments fake-link">Click to show all
+        <span class="show-comments fake-link">Click to show
           <%=answer.comments.count %> comments
         </span>
       </div>

@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130226223624) do
     t.string   "username"
     t.string   "color",                  :default => "#B1ABAB"
     t.string   "provider"
+    t.string   "access_token"
     t.string   "uid"
     t.boolean  "admin"
     t.string   "title"
