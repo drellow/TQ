@@ -7,13 +7,14 @@ class Question < ActiveRecord::Base
 
   def self.todays_question
     Question.where('created_at BETWEEN ? AND ?',
-    DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
+        DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
   end
 
   def self.question_posted?
     !!self.todays_question
   end
 
+  # This should potentially be moved to Answer.rb
   def self.todays_answers
     self.todays_question.answers
   end

@@ -3,17 +3,13 @@ class AnswersController < ApplicationController
   def new
     if current_user.answered_today?
       @answer = current_user.users_current_answer
-      redirect_to root_url
     else
       @answer = Answer.new
-      redirect_to root_url
     end
   end
 
   def create
-    @answer = current_user.answers.build(params[:answer])
-
-    if @answer.save
+    if current_user.answers.create(params[:answer])
       current_user.score += 50
       current_user.legacy_score += 50
       current_user.save!
@@ -29,17 +25,23 @@ class AnswersController < ApplicationController
   end
 
   def vote
+    # It always costs the current user 5
+    # points to vote either up or down.
     if current_user.score >= 5
       answer = Answer.find_by_id(params[:answer_id])
       if params[:score] == "up"
         answer.score += 5
-        answer.user.legacy_score += 10
-        answer.user.save!
-        answer.save!
+        # I make sure the answer saves before updating user.
+        if answer.save
+          answer.user.legacy_score += 10
+          answer.user.save!
+        end
       else
         answer.score -= 5
         answer.save!
       end
+      # Should eventually check if answer saves here too.
+      # http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
       current_user.score -= 5
       current_user.save!
     end
@@ -48,6 +50,4 @@ class AnswersController < ApplicationController
       user_score: current_user.score
     }
   end
-
-
 end
