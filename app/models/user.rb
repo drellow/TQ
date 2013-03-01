@@ -10,9 +10,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :password, :password_confirmation, :username,
                   :email, :score, :legacy_score, :remember_me,
-                  :title, :color, :provider, :uid
-
-  validates :username, uniqueness: true
+                  :title, :color, :provider, :uid, :access_token,
+                  :reset_password_token
 
   before_save do |user|
     user.email = email.downcase
@@ -43,7 +42,9 @@ class User < ActiveRecord::Base
         email: auth.info.email,
         username: auth.info.name,
         access_token: auth.credentials.token,
-        password: Devise.friendly_token[0,20])
+        password: Devise.friendly_token[0,20],
+        )
+      user.send_reset_password_instructions
     end
     user
   end

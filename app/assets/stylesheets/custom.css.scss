@@ -123,17 +123,22 @@ textarea {
   div {
     display: inline;
   }
-  display: inline;
+    display: inline;
   input {
-    width: 80px;
+    width: 35px;
+    height: 35px;
     background  : none;
     cursor  : pointer;
     font-family : Helvetica;
-    font-size: 20px;
+    border-radius: 2px;
+    font-size: 30px;
     color   : #fff;
     border  : none;
     margin      : 0px;
     padding     : 0px;
+  }
+  input:hover {
+    font-size: 35px;
   }
 }
 
