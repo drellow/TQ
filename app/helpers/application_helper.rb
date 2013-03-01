@@ -23,7 +23,7 @@ module ApplicationHelper
     @sorted_users ||= User.all.sort_by { |user| -1 * user.legacy_score }
     @sorted_users.each_with_index do |user, i|
       if user.username == current_user.username
-        return i
+        return (i+1)
       end
     end
   end

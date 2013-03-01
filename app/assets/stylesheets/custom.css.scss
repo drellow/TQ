@@ -34,7 +34,7 @@ a:hover {
 
 .scoreboard {
   padding: 5px;
-  background: #4D0000;
+  background: #1C1C1C;
   margin-bottom: 10px;
 }
 .scoreboard-name {
@@ -60,7 +60,7 @@ a:hover {
   padding: 5px;
   margin: 10px;
   float: right;
-  font-size: 40px;
+  font-size: 43px;
 }
 
 
@@ -100,8 +100,6 @@ a:hover {
   input {
     float: right;
     margin-right: 20px;
-    height: 20px;
-    width: 80px;
     font-size: 12px;
     text-align: center;
   }
@@ -112,7 +110,6 @@ textarea {
   width: 90%;
   height: 180px;
   vertical-align: center;
-  // margin: 20px;
   border-radius: 3px;
   box-shadow: inset 0px 0px 30px 5px #ECE1EC;
 }
@@ -128,11 +125,11 @@ textarea {
   }
   display: inline;
   input {
-    width   : 80px;
+    width: 80px;
     background  : none;
     cursor  : pointer;
-    font-family : 'voltaeftu-regular',Times New Roman;
-    font-size   : 16px;
+    font-family : Helvetica;
+    font-size: 20px;
     color   : #fff;
     border  : none;
     margin      : 0px;
@@ -201,8 +198,9 @@ textarea {
 .user-answer {
   width: 100%;
   border-radius: 5px;
-  background: #413D3D;
-  margin-bottom: 10px;
+  // background: #413D3D;
+  background: #1C1C1C;
+  margin-bottom: 12px;
   color: black;
   h1 {
     color: black;
@@ -255,17 +253,6 @@ textarea {
 .body-content {
   margin: auto;
 }
-
-// .fake-link {
-//   color: black;
-//   font-size: 12;
-// }
-
-// .fake-link:hover {
-//   text-decoration: none;
-//   color: gray;
-//   cursor: pointer;
-// }
 
 
 .fake-link {
@@ -320,8 +307,13 @@ textarea {
 }
 
 .show-comments {
-  padding: 10px;
+  padding: 12px;
 }
+
+.hide-comments {
+  padding: 12px;
+}
+
 
 .current-user-answered, .answered .current-user-not-answered {
   display: none;
@@ -332,12 +324,6 @@ textarea {
 
 }
 
-// .right-span-content {
-//   background: #413D3D;
-//   padding: 10px;
-//   border-radius: 3px;
-//   width: 90%;
-// }
 
 .current-user-answer {
   padding: 10px;
@@ -349,19 +335,16 @@ textarea {
     height: 180px;
     vertical-align: center;
     border-radius: 3px;
-    box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+    // box-shadow: inset 0px 0px 30px 5px #ECE1EC;
   }
   input {
     float: right;
     margin-right: 20px;
-    height: 20px;
     width: 80px;
     font-size: 12px;
-    text-align: center;
+    padding: 5px;
   }
 }
-
-
 
 
 .comment-toggle, .comments-on.comments {
@@ -370,4 +353,16 @@ textarea {
 
 .comments, .comments-on.comment-toggle {
   display: none;
+}
+
+
+.flat-button {
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-weight: bold;
+  background: white;
+  font-family: helvetica;
+  // padding: 5px;
+  input:hover {
+    background: lightGray;
+  }
 }

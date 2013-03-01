@@ -14,6 +14,9 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(params[:answer])
 
     if @answer.save
+      current_user.score += 50
+      current_user.legacy_score += 50
+      current_user.save!
       redirect_to root_url
     else
       redirect_to root_url
