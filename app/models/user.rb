@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
 
+  # REV: should be before_validation, I think.
   before_save do |user|
     user.email = email.downcase
   end
@@ -69,6 +70,11 @@ class User < ActiveRecord::Base
     self.users_current_answer.valid?
   end
 
+  # REV: do not like. This relies to heavily on the fact that a user
+  # can only answer today's question. We shouldn't be using answer
+  # creation time. Can't we say something like
+  # `Question.today_q.answers.where(:user_id => id)`? That will be way
+  # less hacky.
   def users_current_answer
     current_answer = self.answers.where('created_at BETWEEN ? AND ?',
                      DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
@@ -79,6 +85,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # REV: put this in its own dummy Color class.
   MY_COLORS = {
     intense_blue: "#0099FF",
     green_face: "#19DD89",

@@ -7,6 +7,7 @@ class Answer < ActiveRecord::Base
   has_many :comments
 
   validates :body, :user_id, :question_id, :presence => true
+  # REV: too much random whitespace.
 
 
 

@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def release
     Question.todays_question.toggle!(:posted_answers)
+    # REV: prefer root_path
     redirect_to '/'
   end
 
