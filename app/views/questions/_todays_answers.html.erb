@@ -54,7 +54,7 @@
             :remote => true, :class => "new_comment" ) do |f| %>
 
           <%= f.text_area :body, :class => "comment_field" %>
-          <%= f.submit "Add Comment", :class => "pretty-button" %>
+          <%= f.submit "Add Comment", :class => "flat-button" %>
         <% end %>
         <span class="fake-link hide-comments">Click to hide
           <%=answer.comments.count %> comments

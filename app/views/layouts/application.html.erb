@@ -13,8 +13,12 @@
 
     <% unless notice.nil? && alert.nil? %>
       <div class="container alerts">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <p class="notice close">
+          <%= notice %>
+        </p>
+        <p class="alert close">
+          <%= alert %>
+        </p>
       </div>
     <% end %>
 

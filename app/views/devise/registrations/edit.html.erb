@@ -45,10 +45,11 @@
           <%= f.button :submit, "Update" %>
         </div>
       <% end %>
-
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+        <div>
+          <p> Signed up through Facebook? </p>
+          <p> You'll need to
+          <%= link_to "reset your password", new_user_password_path %>. </p>
+        </div>
 
       </div>
     </div>

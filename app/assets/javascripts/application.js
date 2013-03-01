@@ -57,4 +57,9 @@ $(document).ready(function() {
 
 
   $('select[name="user[color]"]').simplecolorpicker();
+
+
+  $(".alerts").click(function() {
+    $('.alerts').slideUp('slow', 'swing');
+  })
 });
