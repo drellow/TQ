@@ -29,6 +29,7 @@
         <% rated_users("high").each_with_index do |high_user, i| %>
         <div class="scoreboard-slot"
              style="background: <%=high_user.color%>">
+          <!-- REV: could you use an ordered list here? -->
           <div class="scoreboard-name"><%= i + 1 %>. <%= high_user.username %></div>
           <div class="scoreboard-score">
             <%= high_user.legacy_score %>

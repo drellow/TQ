@@ -1,3 +1,4 @@
+<!-- REV: your views are getting complex; keep breaking them up. -->
 <%# unless Question.todays_answers(current_user).empty? %>
   <%#Question.todays_answers(current_user).each do |answer| %>
 <% unless sorted_answers.empty? %>
@@ -5,7 +6,7 @@
 
     <div class="user-answer">
 
-
+      <!-- REV: should be in a partial? -->
       <div class="answer-header" style="background: <%=answer.user.color%>">
         <span><%= answer.user.username %>:
           <span class="user-score" id="user<%= answer.user.id %>-score">
@@ -20,6 +21,7 @@
               score: "down"), remote: true, method: :post,
               form_class: "vote-form", class: "btn" %>
           </span>
+          <!-- REV: prefer margin to br -->
           <br>
           <span class="title">
             <%= answer.user.title %>
@@ -44,6 +46,7 @@
         </span>
       </div>
 
+      <!-- REV: should be in a partial? -->
       <div class="comments">
         <div class="comment-collection">
         <%= render :partial => 'questions/comment',

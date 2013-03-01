@@ -10,6 +10,23 @@
 
   <div class="span7">
 
+    <!-- REV: you have five different possibilities (and three are
+         nested). This is *very* hard to follow. The logic for
+         deciding what template (all the conditions with &&s) should
+         move to a view helper.
+
+         Random idea. Create a view helper that just returns a symbol,
+         like `:answers_posted`, `:question_posted`, `:none`. Then
+         have a case in here which just renders one of three templaets.
+
+         Also the complexity comes from rendering different templates
+         if the user is logged in. Don't check that here; render the
+         `answers` template regardless, and just have the `answers`
+         template do different things if the user is logged in. Push
+         that responsibility onto other templates; this one does way
+         too much.
+      -->
+
     <% if user_signed_in? &&
           Question.question_posted? &&
           Question.todays_question.posted_answers %>
