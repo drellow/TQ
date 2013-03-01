@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226223624) do
+ActiveRecord::Schema.define(:version => 20130301213324) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(:version => 20130226223624) do
     t.integer  "answer_id"
     t.integer  "user_id"
     t.string   "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifiers", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -60,13 +65,13 @@ ActiveRecord::Schema.define(:version => 20130226223624) do
     t.string   "access_token"
     t.string   "uid"
     t.boolean  "admin"
-    t.string   "title"
+    t.string   "title",                  :default => "The New One"
     t.integer  "score",                  :default => 100
     t.integer  "legacy_score",           :default => 100
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.string   "email",                  :default => "",        :null => false
-    t.string   "encrypted_password",     :default => "",        :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.string   "email",                  :default => "",            :null => false
+    t.string   "encrypted_password",     :default => "",            :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
