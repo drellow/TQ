@@ -1,5 +1,4 @@
 Tq::Application.routes.draw do
-
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
@@ -15,7 +14,5 @@ Tq::Application.routes.draw do
     resources :comments, :only => [:create, :destroy]
   end
 
-
   root :to => 'questions#today'
-
 end

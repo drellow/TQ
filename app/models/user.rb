@@ -71,66 +71,12 @@ class User < ActiveRecord::Base
   end
 
   def users_current_answer
-    current_answer = self.answers.where('created_at BETWEEN ? AND ?',
-                     DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
+    current_answer = Question.todays_question.answers.where(:user_id => id).first
+
     if current_answer.nil?
       Answer.new
     else
       current_answer
     end
   end
-
-  MY_COLORS = {
-    intense_blue: "#0099FF",
-    green_face: "#19DD89",
-    fuck: "#2099DA",
-    gareen: "#339999",
-    glow: "#43B3AE",
-    fiftiesgreen: "#44AF69",
-    bold_green: "#51b749",
-    aeeat: "#81A89D",
-    jade: "#84AA97",
-    blueyou: "#85CCF8",
-    northern_lights: "#97CC91",
-    rainforest: "#9AAB9B",
-    eat: "#9CC4CD",
-    pretty: "#9CC4E4",
-    hopital: "#9ECBE1",
-    notwhite: "#9ED3F0",
-    eden: "#A0C55F",
-    revelations: "#A8D26E",
-    asix: "#AAAAAA",
-    moondrops: "#ABBD99",
-    mint: "#B5FFCE",
-    frozen: "#BAE4E5",
-    aeteat: "#BBE4E6",
-    voice: "#BC92F0",
-    prettyb: "#BFE5FF",
-    booklight: "#C4BBA9",
-    words: "#C981C7",
-    lightness: "#D5FBFE",
-    fish: "#D6DAA8",
-    comfort: "#E1E79E",
-    prettypink: "#E24864",
-    dont: "#E6F8BA",
-    desert_wind: "#E9ECD9",
-    entranced: "#EBD3ED",
-    bluer: "#EBF5FF",
-    vaseline: "#EBFFC6",
-    lilac: "#EFE3F3",
-    pure: "#F2F0FF",
-    earae: "#F6C0E3",
-    whitetrash: "#F9F2E7",
-    rose: "#FD0E67",
-    one_candle: "#FEF7F8",
-    pink: "#FF3394",
-    sick_orang: "#FFC48C",
-    kitten_nose: "#FFD0D4",
-    chariot: "#FFDBC4",
-    buttercake: "#FFED8F",
-    gray: "#e1e1e1"
-  }
-
-
-
 end

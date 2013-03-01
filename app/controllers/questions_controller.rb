@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def release
     Question.todays_question.toggle!(:posted_answers)
-    redirect_to '/'
+    redirect_to root_path
   end
 
   def new
@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
     if question.save
       redirect_to root_path
     else
-      render 'new'
+      render root_path
     end
   end
 
