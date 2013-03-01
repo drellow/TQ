@@ -1,0 +1,56 @@
+<div class="row container bigbox">
+  <div class="span4 left-span-content">
+      <h1>These don't mean anything.</h1>
+      <p>This scoreboard definitely doesn't mean anything.
+         So really, don't worry about it. It doesn't reflect
+         on you one way or the other. Really.</p>
+  </div>
+
+  <div class="span7">
+
+    <div class="scoreboard">
+      <h2>Your Score:</h2>
+        <div class="scoreboard-slot"
+             style="background: <%=current_user.color%>">
+        <div class="scoreboard-name"><%= user_rating %>.
+          <%= current_user.username %>
+        </div>
+        <div class="scoreboard-score">
+          <%= current_user.legacy_score %>
+        </div>
+        <div class="scoreboard-title">
+          <%= current_user.title %>
+        </div>
+      </div>
+    </div>
+
+    <div class="scoreboard">
+      <h2>Highest Scores:</h2>
+        <% rated_users("high").each_with_index do |high_user, i| %>
+        <div class="scoreboard-slot"
+             style="background: <%=high_user.color%>">
+          <div class="scoreboard-name"><%= i + 1 %>. <%= high_user.username %></div>
+          <div class="scoreboard-score">
+            <%= high_user.legacy_score %>
+          </div>
+          <div class="scoreboard-title"><%= high_user.title %></div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="scoreboard">
+      <h2>Lowest Scores:</h2>
+        <% rated_users("low").each_with_index do |low_user, i| %>
+        <div class="scoreboard-slot"
+             style="background: <%= low_user.color%> ">
+          <div class="scoreboard-name"><%= i + 1 %> .<%= low_user.username %></div>
+          <div class="scoreboard-score">
+            <%= low_user.legacy_score %>
+          </div>
+          <div class="scoreboard-title"><%= low_user.title %></div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

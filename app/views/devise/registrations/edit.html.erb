@@ -19,9 +19,9 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <%= f.input :title, :input_html =>
-                     {:value => UsersHelper.new_title },
-                      :id => "title" %>
+          <%= f.input :username %>
+
+          <%= f.input :title, :id => "title" %>
 
           <span class="fake-link new-title">Randomize Title</span>
 
@@ -49,6 +49,7 @@
       <h3>Cancel my account</h3>
 
       <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+
       </div>
     </div>
 </div>

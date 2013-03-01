@@ -1,14 +1,24 @@
-<div class="container bigbox">
-  <div class="row span11">
+<div class="row container bigbox">
+  <div class="span4 left-span-content">
+
+    <h1>Welcome to the archives!</h1>
+
+  </div>
+
+  <div class="span7">
+
     <% @questions.each do |question| %>
-
-      <span>
-        <%= question.body %>
+      <div class="question-slot">
+        <div class="question-slot-body">
+          <%= question.body %>
+        </div>
+        <div class="question-slot-count">
+          <%= question.answers.count %> answers.
+        </div>
         <%= link_to "Read the answers!", question %>
-      </span>
-      <h3><%= question.answers.count %> answers.</h3>
-
-
+      </div>
     <% end %>
+
+
   </div>
 </div>

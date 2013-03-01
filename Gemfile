@@ -17,6 +17,8 @@ gem 'jquery-simplecolorpicker-rails'
 gem 'rspec-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'koala'
+gem 'fb_graph'
 
 group :test do
   gem 'guard-rspec'

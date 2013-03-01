@@ -7,6 +7,7 @@ Tq::Application.routes.draw do
   resources :questions
   post '/post_answers', to: 'questions#release'
   get '/silly_title', to: 'sillytitles#new'
+  get '/scoreboard', to: 'users#scoreboard'
 
   resources :answers do
     post 'vote', to: 'answers#vote'

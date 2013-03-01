@@ -19,6 +19,9 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def scoreboard
+  end
+
   def show
   end
 

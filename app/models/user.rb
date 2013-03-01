@@ -30,17 +30,39 @@ class User < ActiveRecord::Base
   has_many :fans, :through => :fan_relationships
 
   def self.find_by_facebook_auth(auth)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-
-    unless user
+    user = User.where(:email => auth.info.email).first
+    if user
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.access_token = auth.credentials.token
+      user.save!
+    else
       user = User.create!(
         provider: auth.provider,
         uid: auth.uid,
         email: auth.info.email,
-        # access_token: auth.credentials.token,
+        username: auth.info.name,
+        access_token: auth.credentials.token,
         password: Devise.friendly_token[0,20])
     end
     user
+  end
+
+  def friends
+    if @friends
+      @friends
+    else
+      graph = Koala::Facebook::API.new(self.access_token)
+      graph.get_object("me")
+      @friends = graph.get_connections("me", "friends")
+    end
+  end
+
+  def friends_with?(user)
+    friends.each do |friend|
+     return true if friend["id"] == user.uid
+    end
+    false
   end
 
   def answered_today?
@@ -58,54 +80,56 @@ class User < ActiveRecord::Base
   end
 
   MY_COLORS = {
-    green_face:       '#19DD89',
-    frozen:           '#BAE4E5',
-    dont:             '#E6F8BA',
-    pretty:           '#9CC4E4',
-    intense_blue:     '#0099FF',
-    bold_green:       '#51b749',
-    sick_orang:       '#FFC48C',
-    kitten_nose:      '#FFD0D4',
-    lilac:            '#EFE3F3',
-    desert_wind:      '#E9ECD9',
-    chariot:          '#FFDBC4',
-    gray:             '#e1e1e1',
-    asix:             '#AAAAAA',
-    rose:             '#FD0E67',
-    vaseline:         '#EBFFC6',
-    pure:             '#F2F0FF',
-    glow:             '#43B3AE',
-    lightness:        '#D5FBFE',
-    comfort:          '#E1E79E',
-    fish:             '#D6DAA8',
-    hopital:          '#9ECBE1',
-    booklight:        '#C4BBA9',
-    whitetrash:       '#F9F2E7',
-    northern_lights:  '#97CC91',
-    moondrops:        '#ABBD99',
-    entranced:        '#EBD3ED',
-    gareen:           '#339999',
-    fiftiesgreen:     '#44AF69',
-    eden:             '#A0C55F',
-    one_candle:       '#FEF7F8',
-    mint:             '#B5FFCE',
-    revelations:      '#A8D26E',
-    rainforest:       '#9AAB9B',
-    bluer:            '#EBF5FF',
-    jade:             '#84AA97',
-    buttercake:       '#FFED8F',
-    blueyou:          '#85CCF8',
-    prettyb:          '#BFE5FF',
-    prettypink:       '#E24864',
-    pink:             '#FF3394',
-    words:            '#C981C7',
-    voice:            '#BC92F0',
-    fuck:             '#2099DA',
-    notwhite:         '#9ED3F0',
-    earae:            '#F6C0E3',
-    eat:              '#9CC4CD',
-    aeteat:           '#BBE4E6',
-    aeeat:            '#81A89D',
+    intense_blue: "#0099FF",
+    green_face: "#19DD89",
+    fuck: "#2099DA",
+    gareen: "#339999",
+    glow: "#43B3AE",
+    fiftiesgreen: "#44AF69",
+    bold_green: "#51b749",
+    aeeat: "#81A89D",
+    jade: "#84AA97",
+    blueyou: "#85CCF8",
+    northern_lights: "#97CC91",
+    rainforest: "#9AAB9B",
+    eat: "#9CC4CD",
+    pretty: "#9CC4E4",
+    hopital: "#9ECBE1",
+    notwhite: "#9ED3F0",
+    eden: "#A0C55F",
+    revelations: "#A8D26E",
+    asix: "#AAAAAA",
+    moondrops: "#ABBD99",
+    mint: "#B5FFCE",
+    frozen: "#BAE4E5",
+    aeteat: "#BBE4E6",
+    voice: "#BC92F0",
+    prettyb: "#BFE5FF",
+    booklight: "#C4BBA9",
+    words: "#C981C7",
+    lightness: "#D5FBFE",
+    fish: "#D6DAA8",
+    comfort: "#E1E79E",
+    prettypink: "#E24864",
+    dont: "#E6F8BA",
+    desert_wind: "#E9ECD9",
+    entranced: "#EBD3ED",
+    bluer: "#EBF5FF",
+    vaseline: "#EBFFC6",
+    lilac: "#EFE3F3",
+    pure: "#F2F0FF",
+    earae: "#F6C0E3",
+    whitetrash: "#F9F2E7",
+    rose: "#FD0E67",
+    one_candle: "#FEF7F8",
+    pink: "#FF3394",
+    sick_orang: "#FFC48C",
+    kitten_nose: "#FFD0D4",
+    chariot: "#FFDBC4",
+    buttercake: "#FFED8F",
+    gray: "#e1e1e1"
   }
+
+
 
 end

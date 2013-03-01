@@ -30,6 +30,8 @@ class AnswersController < ApplicationController
       answer = Answer.find_by_id(params[:answer_id])
       if params[:score] == "up"
         answer.score += 5
+        answer.user.legacy_score += 10
+        answer.user.save!
         answer.save!
       else
         answer.score -= 5

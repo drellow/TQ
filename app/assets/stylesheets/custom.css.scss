@@ -14,6 +14,78 @@ a:hover {
   color: gray;
 }
 
+.question-slot {
+  background: #4D0000;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.question-slot-body {
+  font-size: 20px;
+  float: left;
+  background: #4D0000;
+}
+
+.question-slot-count {
+  font-size: 14px;
+  float: right;
+  background: #4D0000;
+}
+
+.scoreboard {
+  padding: 5px;
+  background: #4D0000;
+  margin-bottom: 10px;
+}
+.scoreboard-name {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+  color: #4D0000;
+  float: left;
+}
+
+.scoreboard-slot {
+  margin-bottom: 5px;
+}
+
+.scoreboard-title {
+  color: #4D0000;
+  padding: 5px;
+  clear: left;
+}
+
+.scoreboard-score {
+  color: #4D0000;
+  padding: 5px;
+  margin: 10px;
+  float: right;
+  font-size: 40px;
+}
+
+
+.fb-friend {
+  float: right;
+  font-size: 12px;
+  color: white;
+  // background: #3B5998;
+  // border: 1px solid black;
+  padding: 3px;
+  margin: 3px;
+  border-radius: 2px;
+}
+
+.title {
+  font-size: 12px;
+  color: white;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.user-score {
+  font-size: 14px;
+}
+
 
 .new_comment {
   textarea {
@@ -37,10 +109,10 @@ a:hover {
 
 textarea {
   resize: none;
-  width: 100%;
+  width: 90%;
   height: 180px;
   vertical-align: center;
-  margin: 20px;
+  // margin: 20px;
   border-radius: 3px;
   box-shadow: inset 0px 0px 30px 5px #ECE1EC;
 }
@@ -72,11 +144,6 @@ textarea {
     box-shadow: none;
     background-color: black;
     color: white;
-}
-
-.greeting_info {
-  // text-align: right;
-  float: right;
 }
 
 .span5 {
@@ -154,12 +221,21 @@ textarea {
 .greeting {
   h1 {
     color: black;
+    float: left;
   }
   color: #413D3D;
   margin-top: 50px;
   margin-bottom: 20px;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
+}
+
+.greeting_info {
+  float: right;
+  color: black;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-right: 40px;
 }
 
 .navbar-inner {
@@ -227,29 +303,11 @@ textarea {
 }
 
 .pretty-button {
-  -moz-box-shadow:inset 0px 0px 0px -19px #ffffff;
-  -webkit-box-shadow:inset 0px 0px 0px -19px #ffffff;
-  box-shadow:inset 0px 0px 0px -19px #ffffff;
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
-  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-  background-color:#ededed;
-  display:inline-block;
-  color:#777777;
-  font-family:arial;
-  font-size:19px;
-  font-weight:bold;
-  padding:8px 22px;
-  text-decoration:none;
-  text-shadow:1px 1px 1px #ffffff;
+
 }.pretty-button:hover {
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-  background-color:#dfdfdf;
+
 }.pretty-button:active {
-  position:relative;
-  top:1px;
+
 }
 
 
@@ -282,7 +340,6 @@ textarea {
 // }
 
 .current-user-answer {
-  background: #413D3D;
   padding: 10px;
   border-radius: 3px;
   textarea {

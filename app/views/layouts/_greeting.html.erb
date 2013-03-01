@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="container greeting bigbox" style="background: <%= current_user.color %>">
-    <div class="span11">
+    <div class="span12">
       <h1>Hi, <%= current_user.username %>.</h1>
         <span class="greeting_info">
           <% if current_user.score > 0 %>
@@ -8,7 +8,7 @@
             <span id="current_user_score">
               <%= current_user.score %>
             </span>
-            points to give (or take) away.
+            points to give or take.
           <% else %>
             Answer questions to get more points.
           <% end %>
@@ -16,7 +16,7 @@
     </div>
   </div>
 <% else %>
-  <div class="container greeting">
+  <div class="container greeting bigbox">
     <div class="span12">
       <h1 style="color: white"> Hi! </h1>
     </div>
