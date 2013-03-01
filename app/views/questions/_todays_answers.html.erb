@@ -36,7 +36,10 @@
       </div>
 
       <div class="answer-body">
-        <p><%= answer.body %></p>
+        <p>
+          <%= sanitize(simple_format(answer.body),
+            :tags => %w(br p) )%>
+        </p>
       </div>
 
       <div class="comment-toggle">
