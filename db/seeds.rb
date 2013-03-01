@@ -23,6 +23,7 @@ admin.title = UsersHelper.new_title
                        (rand(150) + 50).to_s + ")"
 admin.legacy_score = rand(123345)
 admin.toggle!(:admin)
+admin.skip_confirmation!
 admin.save!
 
 #create today's question
@@ -44,6 +45,7 @@ end
                         (rand(150) + 50).to_s + ")"
   user.legacy_score = rand(123345)
   users << user
+  user.skip_confirmation!
   user.save!
 end
 
@@ -58,6 +60,7 @@ end
   user.uid = friend_ids[n]
   puts user.username
   user.legacy_score = rand(123345)
+  user.skip_confirmation!
   users << user
   user.save!
 end
