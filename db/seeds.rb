@@ -17,13 +17,13 @@ friend_ids = ["10223202", "10229617", "10234466", "10501553",
 #create admin user
 admin = User.new(:username => "christopher", :email => "christopherlives@gmail.com",
        :password => "foobarish", :password_confirmation => "foobarish")
+admin.skip_confirmation!
 admin.title = UsersHelper.new_title
   admin.color = "rgb(" + (rand(150) + 50).to_s + "," +
                        (rand(150) + 50).to_s + "," +
                        (rand(150) + 50).to_s + ")"
 admin.legacy_score = rand(123345)
 admin.toggle!(:admin)
-admin.skip_confirmation!
 admin.save!
 
 #create today's question
