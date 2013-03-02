@@ -6,8 +6,9 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   def self.todays_question
+    today = Time.now.in_time_zone("Pacific Time (US & Canada)")
     Question.where('created_at BETWEEN ? AND ?',
-        DateTime.now.beginning_of_day, DateTime.now.end_of_day).first
+        today.beginning_of_day, today.end_of_day).first
   end
 
   def self.question_posted?
