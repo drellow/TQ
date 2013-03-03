@@ -9,9 +9,9 @@
 
 <div class="row container bigbox">
   <div class="span4 left-span-content">
-    <% unless @question.nil? %>
-      <h1><%= @question.body %></h1>
-      <p><%= @question.info %></p>
+    <% unless Question.todays_question.nil? %>
+      <h1><%= Question.todays_question.body %></h1>
+      <p><%= Question.todays_question.info %></p>
     <% else %>
       <h1>No question posted today</h1>
     <% end %>

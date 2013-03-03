@@ -3,10 +3,7 @@
 
 <% unless sorted_answers.empty? %>
   <% sorted_answers.each do |answer| %>
-
     <div class="user-answer">
-
-
       <div class="answer-header" style="background: <%=answer.user.color%>">
         <span><%= answer.user.username %>
           <span class="user-score" id="user<%= answer.user.id %>-score">
@@ -25,13 +22,11 @@
           <span class="title">
             <%= answer.user.title %>
           </span>
-
           <% if current_user.provider == "facebook" && current_user.friends_with?(answer.user) %>
             <span class="fb-friend">
                   Your friend.
             </span>
           <% end %>
-
         </span>
       </div>
 
