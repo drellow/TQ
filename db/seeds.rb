@@ -13,6 +13,21 @@ users = []
 answers = []
 friend_ids = ["10223202", "10229617", "10234466", "10501553",
               "10736744", "11007241"]
+answers = ["Oh man I really love this question. I'm just so stoked to be
+          here today, thanks so much to my family.", "The last time someone
+          asked me this, I pretended I didn't know them.", "What do you mean,
+          I mean, isn't it obvious?", "I once drove from Pittsburgh Pennsylvania
+          to Boulder Colorado without stopping. We only stopped because we'd
+          accidently slipped the car into Overdrive and thought we'd done something
+          to the engine. In reality, we were just too tired to notice. Then my
+          brother and I and my buddy all fell asleep in the sauna and woke up afraid
+          we were going to die.", "I once saw a bear in the woods. My buddies saw it
+          first and hollered at me to 'look at that!' but I was adjusting the straps
+          on my backpack and would have otherwise walked right into the thing.", "Aldous
+          Huxley once said the the principle function of a friend is to suffer in mild
+          and symbolic form the punishments we would like to but are unable to inflict
+          upon our enemies.", "Sometimes I get scared. They mostly come out at night,
+          though. Mostly."]
 
 #create admin user
 admin = User.new(:username => "christopher", :email => "christopherlives@gmail.com",
@@ -35,7 +50,7 @@ question = admin.questions.build(:body => "When is it too late to laminate?").sa
 end
 
 #create basic users
-10.times do |n|
+6.times do |n|
   user = User.new(:username => names[n], :email => "#{names[n]}@bar.com",
            :password => "foobarish", :password_confirmation => "foobarish")
   user.title = UsersHelper.new_title
@@ -43,6 +58,7 @@ end
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +
                         (rand(150) + 50).to_s + "," +
                         (rand(150) + 50).to_s + ")"
+  user.uid = friend_ids[n]
   user.legacy_score = rand(123345)
   users << user
   user.skip_confirmation!
@@ -50,14 +66,13 @@ end
 end
 
 #create friends
-5.times do |n|
-  user = User.new(:username => "#{names[n]}er", :email => "#{names[n+6]}@baz.com",
+9.times do |n|
+  user = User.new(:username => "#{names[n+6]}er", :email => "#{names[n+6]}@baz.com",
            :password => "foobarish", :password_confirmation => "foobarish")
   user.title = UsersHelper.new_title
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +
                         (rand(150) + 50).to_s + "," +
                         (rand(150) + 50).to_s + ")"
-  user.uid = friend_ids[n]
   puts user.username
   user.legacy_score = rand(123345)
   user.skip_confirmation!
@@ -67,14 +82,14 @@ end
 
 20.times do |n|
   10.times do |i|
-    answer = users[i].answers.build(:body => "I don't know!", :question_id => n).save!
+    answer = users[i].answers.build(:body => answers.sample, :question_id => n).save!
     answers << answer
   end
 end
 
 
-5.times do |i|
-  Question.first.answers.first.comments.build(:user_id => (i + 1), :body => "My comment!").save!
+7.times do |i|
+  Question.first.answers.first.comments.build(:user_id => (i + 1), :body => answers.sample).save!
 end
 
 puts users
