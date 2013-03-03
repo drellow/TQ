@@ -27,7 +27,9 @@ answers = ["Oh man I really love this question. I'm just so stoked to be
           Huxley once said the the principle function of a friend is to suffer in mild
           and symbolic form the punishments we would like to but are unable to inflict
           upon our enemies.", "Sometimes I get scared. They mostly come out at night,
-          though. Mostly."]
+          though. Mostly.", "Wouldn't it be alright if just once we could talk through
+          the whole night and by the morning I'd still be interested in what we were
+          talking about. I feel like that used to happen."]
 
 #create admin user
 admin = User.new(:username => "christopher", :email => "christopherlives@gmail.com",
