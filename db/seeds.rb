@@ -13,7 +13,7 @@ users = []
 answers = []
 friend_ids = ["10223202", "10229617", "10234466", "10501553",
               "10736744", "11007241"]
-answers = ["Oh man I really love this question. I'm just so stoked to be
+answer_body = ["Oh man I really love this question. I'm just so stoked to be
           here today, thanks so much to my family.", "The last time someone
           asked me this, I pretended I didn't know them.", "What do you mean,
           I mean, isn't it obvious?", "I once drove from Pittsburgh Pennsylvania
@@ -48,7 +48,7 @@ question = admin.questions.build(:body => "When is it too late to laminate?").sa
 
 20.times do |n|
   admin.questions.build(:body => "What is your favorite color?",
-                        :created_at => n.days.ago).save!
+                        :created_at => (n+2).days.ago).save!
 end
 
 #create basic users
@@ -84,14 +84,14 @@ end
 
 20.times do |n|
   10.times do |i|
-    answer = users[i].answers.build(:body => answers.sample, :question_id => n).save!
+    answer = users[i].answers.build(:body => answer_body.sample, :question_id => n).save!
     answers << answer
   end
 end
 
 
 7.times do |i|
-  Question.first.answers.first.comments.build(:user_id => (i + 1), :body => answers.sample).save!
+  Question.first.answers.first.comments.build(:user_id => (i + 1), :body => answer_body.sample).save!
 end
 
 puts users
