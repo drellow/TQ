@@ -197,15 +197,6 @@ queenlier
 queenliest
 queenly
 queens
-queer
-queered
-queerer
-queerest
-queering
-queerly
-queerness
-queernesses
-queers
 quell
 quelled
 quelling
