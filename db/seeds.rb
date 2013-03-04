@@ -13,6 +13,12 @@ users = []
 answers = []
 friend_ids = ["10223202", "10229617", "10234466", "10501553",
               "10736744", "11007241"]
+questions = ["When is it too late to laminate?", "How tall is your grandmother?",
+             "Which clock is the best clock?", "Would you like to argue with a
+             sasquatch?", "Who ate all the corn?", "What time is it?", "Why is
+             your tub shrinking?", "Would you ruin your life for a jamboree?",
+             "Do you have time for handball?", "Do you like wheat?", "Are you looking
+             for a good reason to floss?"]
 answer_body = ["Oh man I really love this question. I'm just so stoked to be
           here today, thanks so much to my family.", "The last time someone
           asked me this, I pretended I didn't know them.", "What do you mean,
@@ -44,10 +50,10 @@ admin.toggle!(:admin)
 admin.save!
 
 #create today's question
-question = admin.questions.build(:body => "When is it too late to laminate?").save!
+question = admin.questions.build(:body => questions.sample).save!
 
 20.times do |n|
-  admin.questions.build(:body => "What is your favorite color?",
+  admin.questions.build(:body => questions.sample,
                         :created_at => (n+2).days.ago).save!
 end
 

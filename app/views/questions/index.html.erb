@@ -14,8 +14,11 @@
         </div>
         <div class="question-slot-count">
           <%= question.answers.count %> answers.
+          <%= question.created_at.strftime("%m-%d-%Y") %>
+        </div><br>
+        <div class="question-slot-link">
+          <%= link_to "Read the answers!", question %>
         </div>
-        <%= link_to "Read the answers!", question %>
       </div>
     <% end %>
 
