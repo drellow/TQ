@@ -5,6 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :info
       t.integer :user_id
       t.boolean :posted_answers
+      t.boolean :emailed_answers
 
       t.timestamps
     end

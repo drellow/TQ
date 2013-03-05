@@ -1,0 +1,42 @@
+<div class="row container bigbox">
+  <div class="span4 left-span-content">
+    <h1>Admin Answers!</h1>
+  </div>
+
+  <div class="span7">
+    <% unless sorted_answers.empty? %>
+      <% sorted_answers.each do |answer| %>
+        <div class="user-answer">
+          <div class="answer-header" style="background: <%=answer.user.color%>">
+            <span><%= answer.user.username %>
+              <span class="user-score" id="user<%= answer.user.id %>-score">
+                <%=answer.score%> points.
+              </span>
+              <span class="answer-buttons">
+              <%= button_to "+", answer_vote_path(answer_id: answer.id,
+                  score: "up"), remote: true, method: :post,
+                  form_class: "vote-form", class: "btn" %>
+
+              <%= button_to "-", answer_vote_path(answer_id: answer.id,
+                  score: "down"), remote: true, method: :post,
+                  form_class: "vote-form", class: "btn" %>
+              </span>
+            </span>
+          </div>
+
+          <div class="answer-body">
+            <p>
+              <%= sanitize(simple_format(answer.body),
+                :tags => %w(br p) )%>
+            </p>
+            <p>
+              <%= link_to "Delete", answer, method: :delete,
+                data: { confirm: "Really delete #{answer.body}?" } %>
+            </p>
+          </div>
+
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

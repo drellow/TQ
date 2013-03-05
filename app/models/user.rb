@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :username,
                   :email, :score, :legacy_score, :remember_me,
                   :title, :color, :provider, :uid, :access_token,
-                  :reset_password_token
+                  :reset_password_token, :receives_email
 
   before_save do |user|
     user.email = email.downcase
@@ -36,14 +36,15 @@ class User < ActiveRecord::Base
       user.access_token = auth.credentials.token
       user.save!
     else
-      user = User.create!(
-        provider: auth.provider,
-        uid: auth.uid,
-        email: auth.info.email,
-        username: auth.info.name,
-        access_token: auth.credentials.token,
-        password: Devise.friendly_token[0,20],
-        )
+      user = User.new
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.username = auth.info.name
+      user.access_token = auth.credentials.token
+      user.password = Devise.friendly_token[0,20]
+      user.skip_confirmation!
+      user.save!
       user.send_reset_password_instructions
     end
     user

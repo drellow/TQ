@@ -40,34 +40,48 @@ module UsersHelper
   end
 
   def self.adjective
-    %w(Asthmatic Aging Bald Black Boring Brave Brown Cheery Dark Dorky Energetic
-       Filthy Frozen Gold Happy Holy Imaginary Jolly Loud Magical
-       Mighty Mighty Miserable New Old Once-Great Pale Patient
+    %w(Asthmatic Aging Bald Bashful Beautiful Better Black Boastful Boring
+       Brave Breezy Brief Bright Broad Broken Bumpy Burly Brown Bronze
+       Cagey Callous Childlike Chubby Cuddly Crabby Cowardly Cool Clumsy
+       Cheery  Daft Detailed Determined Draconian Dry Dull Dysfunctional
+       Dark Dorky Energetic
+       Filthy Frozen Gold Happy Holy Imaginary Jolly Kind Loud Magical
+       Mighty Mighty Miserable New Old Once_Great Pale Patient
        Patronizing Poor Prone Red Rich Rogue Salty Shiny Skinny Slippy
-       Supine Threatening Wheezy Whispering White Youngish).sample
+       Supine Threatening Wheezy Whispering White Youngish).sample.humanize.titlecase
   end
 
   def self.honorific
-    %w(Doctor Lord Sir Pubah Captain Colonel General Excellency
-      Senator Coach Skipper Father Officer Emporer Lamane
-      Sultan Prince Duke Pope Archduke Baron Baroness
-      Squire Chaplain Rogue Designer Pilot Bride Groom Mayor
-      Senator President Friend Assistant
-      Assisstant-to-the-Assistant).sample
+    %w(Doctor Lord Sir Captain Colonel General Major Representative
+      Senator Coach Father Officer Emporer Speaker Councillor Governor
+      Sultan Prince Duke Pope Archduke Baron Baroness Ambassador
+      Squire Rogue Pilot Bride Mayor Secretary Princess Prince Archduke
+      Senator President Assistant Private Corporal Sgt Marquis Count Lord
+      Assisstant_to_the_Assistant Queen Attorney Judge Brother Sister
+      First_Officer Commander Nurse Chief Citizen
+      Darth Alpha Journeyman Highwayman Viceroy Master).sample.humanize.titlecase
   end
 
   def self.plural
     %w(Monsters Dragons Doom Swelling Teeth Fright Chocolate Cupcakes
        Coffee Airplanes Coding Computers Styrofoam Carpet Beer Waffles
-       Dolphins Couches Spoon Forks Magic Name-Brand-Desserts Stillness
-       Ice Pork Handshakes Plastic Drainage Neckties Bubble-Gum Pickles
-       Stains Swimming-Pools Bees).sample
+       Dolphins Couches Spoon Forks Magic Name_Brand_Desserts Stillness
+       Ice Pork Handshakes Plastic Drainage Neckties Bubble_Gum Pickles
+       Stains Swimming_Pools Bees Popcorn Trunks Trampolines Ketchup
+       Tea Mountain_Climbing Fence_Building Muck_Raking Dog_Sitting
+       Tooth_Aching Flat_Tires Unfinished_Novels Sword_Fighting
+       Staying_up_late Car_Parts Soup The_Dishes_We_Never_Use
+       Fence_Painting Book_Reading Snacks Charts Presentations
+       Executive_Summaries).sample.humanize.titlecase
   end
 
   def self.singular
     %w(Monster Dragon Cupcake Airplane LineBreak Styrofoam Carpet
        Beer Waffle Dolphin Couch Spoon Fork Football Sloth Armada
-       Wasp Puddle Crate Cardboard-Box Muscle Hamster Wolf Seal
-       Cyclone Tornado Bottle Key Germ Seed).sample
+       Wasp Puddle Crate Cardboard_Box Muscle Hamster Wolf Seal
+       Cyclone Tornado Bottle Key Germ Seed Duck Peanut Panther
+       Monster Book Novel Storm Window Eye Donkey Apple Garlic
+       Taco Burrito Cartoon Target Wheel Pipe Portal Peel Desk Monitor
+       Torpedo).sample.humanize.titlecase
   end
 end

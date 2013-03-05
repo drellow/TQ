@@ -1,0 +1,25 @@
+<div class="row container bigbox">
+  <div class="span4 left-span-content">
+      <h1>Admin Panel.</h1>
+  </div>
+
+  <div class="span7">
+    <ul>
+      <li>
+        <% if Question.todays_answers_posted? %>
+          <% posted_message = "Unpost Answers" %>
+        <% else %>
+          <% posted_message = "Post Answers" %>
+        <% end %>
+        <%= link_to posted_message, post_answers_path, :method => :post %>
+      </li>
+      <li>
+        <%= link_to "Mail Out the Answers", email_answers_path,
+                :method => :post %>
+      </li>
+      <li>
+        <%= link_to "Administrate Answers", admin_answers_path %>
+      </li>
+    </ul>
+  </div>
+</div>

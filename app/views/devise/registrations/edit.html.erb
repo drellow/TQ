@@ -21,14 +21,17 @@
 
           <%= f.input :username %>
 
-          <%= f.input :title, :id => "title" %>
+          <%= f.input :title, :id => "title", :input_html => {:style => 'width: 300px'} %>
 
           <span class="fake-link new-title">Randomize Title</span>
 
+          <% default_color = Color::MY_COLORS.key(current_user.color) %>
           <%= f.input :color, collection: Color::MY_COLORS,
-                      selected: Color::MY_COLORS[:green] %>
+                      selected: Color::MY_COLORS[default_color] %>
           </br>
           </br>
+          <%= f.label "Daily emails for questions and answers?"%>
+          <%= f.input :receives_email %>
 
           <%= f.input :password,
                       :autocomplete => "off",

@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :body, :info, :user_id, :created_at
+  attr_accessible :body, :info, :user_id, :created_at, :emailed_answers
 
   belongs_to :user
   validates :user_id, :body, :presence => true
@@ -15,9 +15,11 @@ class Question < ActiveRecord::Base
     !!self.todays_question
   end
 
-  # This should potentially be moved to Answer.rb
   def self.todays_answers
     self.todays_question.answers
   end
 
+  def self.todays_answers_posted?
+    self.todays_question.posted_answers?
+  end
 end
