@@ -31,7 +31,7 @@
           </br>
           </br>
           <%= f.label "Daily emails for questions and answers?"%>
-          <%= f.input :receives_email %>
+          <%= f.input :receives_email, as: :boolean %>
 
           <%= f.input :password,
                       :autocomplete => "off",
