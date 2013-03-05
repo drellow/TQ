@@ -21,31 +21,21 @@
     <% if user_signed_in? &&
           Question.question_posted? &&
           Question.todays_question.posted_answers %>
-
-      <%= render 'questions/todays_answers' %>
-
+      <%= render 'answers/todays_answers' %>
     <% elsif Question.question_posted? &&
              Question.todays_question.posted_answers %>
-
       <%= render 'questions/logged_out_todays_answers' %>
-
     <% else %>
-
       <% if user_signed_in? && Question.question_posted? %>
-
-      <%= render 'questions/answer_question' %>
-
+        <%= render 'questions/answer_question' %>
       <% elsif Question.question_posted? %>
 
         <h2>
           <%= link_to "Sign in to answer today's question!",
                       new_user_session_path %>
         </h2>
-
       <% else %>
-
         <h2>Keep waiting...</h2>
-
       <% end %>
 
     <% end %>

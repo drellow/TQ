@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(:version => 20130301213324) do
     t.text     "info"
     t.integer  "user_id"
     t.boolean  "posted_answers"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.boolean  "emailed_answers"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "relationships", :force => true do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130301213324) do
     t.string   "access_token"
     t.string   "uid"
     t.boolean  "admin"
+    t.boolean  "receives_email",         :default => true
     t.string   "title",                  :default => "The New One"
     t.integer  "score",                  :default => 100
     t.integer  "legacy_score",           :default => 100

@@ -4,10 +4,13 @@ Tq::Application.routes.draw do
   }
   resources :users, :only => [:index, :edit, :update, :destroy]
   resources :questions
+  get '/admin_dashboard', to: 'admin_dashboard#dashboard'
+  get '/admin_answers', to: 'answers#admin_answers'
+  post '/email_question', to: 'admin_dashboard#email_question'
+  post '/email_answers', to: 'admin_dashboard#email_answers'
   post '/post_answers', to: 'questions#release'
   get '/silly_title', to: 'sillytitles#new'
   get '/scoreboard', to: 'users#scoreboard'
-  get '/admin', to: 'users#admin'
   post '/reset_password', to: 'users#reset_password'
 
   resources :answers do

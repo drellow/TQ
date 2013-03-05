@@ -8,6 +8,11 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    Answer.find(params[:id]).destroy
+    redirect_to admin_answers_path
+  end
+
   def create
     if current_user.answers.create(params[:answer])
       current_user.score += 50

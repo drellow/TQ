@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def release
     Question.todays_question.toggle!(:posted_answers)
-    redirect_to root_path
+    redirect_to admin_dashboard_path
   end
 
   def new
@@ -36,16 +36,12 @@ class QuestionsController < ApplicationController
     question = current_user.questions.build(params[:question])
 
     if question.save
+      User.all.each do |user|
+        Notifier.email_question(user).deliver if user.receives_email
+      end
       redirect_to root_path
     else
       render root_path
     end
   end
-
-  private
-
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
-
 end

@@ -2,7 +2,7 @@ class Color < ActiveRecord::Base
   MY_COLORS = {
     intense_blue: "#D68383",
     green_face: "#D68396",
-    fuck: "#D683AF",
+    dove: "#D683AF",
     gareen: "#D683C0",
     glow: "#D683D1",
     fiftiesgreen: "#CA83D6",
