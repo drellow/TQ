@@ -95,12 +95,12 @@ a:hover {
     border-radius: 3px;
     box-shadow: inset 0px 0px 30px 5px #ECE1EC;
   }
-  input {
-    float: right;
-    margin-right: 20px;
-    font-size: 12px;
-    text-align: center;
-  }
+  // input {
+  //   float: right;
+  //   margin-right: 20px;
+  //   font-size: 12px;
+  //   text-align: center;
+  // }
 }
 
 textarea {
@@ -196,8 +196,6 @@ textarea {
     color: lightGray;
   }
 }
-
-
 
 .user-answer {
   width: 100%;
@@ -341,13 +339,13 @@ textarea {
     border-radius: 3px;
     // box-shadow: inset 0px 0px 30px 5px #ECE1EC;
   }
-  input {
-    float: right;
-    margin-right: 20px;
-    width: 80px;
-    font-size: 12px;
-    padding: 5px;
-  }
+  // input {
+  //   float: right;
+  //   margin-right: 20px;
+  //   width: 80px;
+  //   font-size: 12px;
+  //   padding: 5px;
+  // }
 }
 
 
@@ -360,13 +358,19 @@ textarea {
 }
 
 
-.flat-button {
+input.flat-button {
+  color: black;
   font-family: Helvetica, Arial, Sans-Serif;
   font-weight: bold;
-  background: white;
-  font-family: helvetica;
-  // padding: 5px;
-  input:hover {
-    background: lightGray;
+  margin-right: 20px;
+  background: #C2D4E0;
+  border-radius: 5px;
+  border: none;
+  text-shadow: none;
+  &:hover {
+    background: #0366A1;
+  }
+  &:active {
+    background: #4C8AC5;
   }
 }
