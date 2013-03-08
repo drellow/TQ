@@ -23,6 +23,10 @@ module UsersHelper
         title << plural
       when :sing
         title << singular
+      when :who
+        title << "Who"
+      when :verb
+        title << verb
       end
     end
     final_title = title.join(" ")
@@ -32,9 +36,10 @@ module UsersHelper
 
   def self.choose_format
     formats = [
-              [:the, :adj, :honorific, :of, :plural],
-              [:honorific, :plural],
-              [:the, :adj, :sing]
+              # [:the, :adj, :honorific, :of, :plural],
+              # [:honorific, :plural],
+              # [:the, :adj, :sing],
+              [:the, :sing, :who, :verb, :plural]
               ]
     formats.sample
   end
@@ -82,6 +87,16 @@ module UsersHelper
        Cyclone Tornado Bottle Key Germ Seed Duck Peanut Panther
        Monster Book Novel Storm Window Eye Donkey Apple Garlic
        Taco Burrito Cartoon Target Wheel Pipe Portal Peel Desk Monitor
-       Torpedo).sample.humanize.titlecase
+       Torpedo Boy Man Friend Uncle Tailor Baker Mouse Player
+       Field Spaceman Dik-Dik Gun).sample.humanize.titlecase
+  end
+
+  def self.verb
+    %w(Cries Jumps Visits Saws Chops Cooks Eats Bills Builds
+       Drives Rides Kills Makes Drinks Calls Reads Licks Borrows
+       Destroys Creates Consumes Throws Clothes Feeds Employs
+       Emails Quits Dunks Pops Compartmentalizes Moves Buys Pays
+       Sells Tries Collects Grows Climbs Clubs Strikes Hugs Paints
+       Kisses Breaks Watches Hears Fixes Sees Conducts).sample.humanize.titlecase
   end
 end
