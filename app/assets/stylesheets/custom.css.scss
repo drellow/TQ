@@ -367,6 +367,8 @@ input.flat-button {
   border-radius: 5px;
   border: none;
   text-shadow: none;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
   &:hover {
     background: #0366A1;
   }
