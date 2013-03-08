@@ -36,9 +36,9 @@ module UsersHelper
 
   def self.choose_format
     formats = [
-              # [:the, :adj, :honorific, :of, :plural],
-              # [:honorific, :plural],
-              # [:the, :adj, :sing],
+              [:the, :adj, :honorific, :of, :plural],
+              [:honorific, :plural],
+              [:the, :adj, :sing],
               [:the, :sing, :who, :verb, :plural]
               ]
     formats.sample
