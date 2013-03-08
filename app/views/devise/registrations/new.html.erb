@@ -2,7 +2,7 @@
     <div class="span4">
         <h3>People will like you more after signing up.</h3>
     </div>
-    <div class="span5">
+    <div class="span7">
       <div class="sign-up">
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -13,7 +13,14 @@
           <%= f.input :title, :input_html =>
                      {:value => UsersHelper.new_title },
                       :id => "title" %>
-          <span class="fake-link new-title">Randomize Title</span>
+          <span class="fake-link new-title">Randomize Title
+          </span>
+
+          <%= f.input :color, collection: Color::MY_COLORS,
+                    selected: Color::MY_COLORS[rand(50)] %>
+          </br>
+          </br>
+
           <%= f.input :password, :required => true %>
           <%= f.input :password_confirmation, :required => true %>
         </div>
