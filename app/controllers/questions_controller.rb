@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
     if Question.question_posted?
       @questions = Question.all.select! { |q| q != Question.todays_question }
     else
-      questions = Question.all
+      @questions = Question.all
     end
   end
 
