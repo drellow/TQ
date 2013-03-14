@@ -1,15 +1,14 @@
 module ApplicationHelper
 
   def sorted_answers
-    answers = Question.todays_answers.sort_by do |answer|
-      answer.score * -1
-    end
+    answers = Question.todays_answers
     if current_user.provider == "facebook"
       answers.sort_by do |a|
-        current_user.friends_with?(a.user) ? 0 : 1
+        [current_user.friends_with?(a.user) ? 0 : 1,
+          a.score * -1]
       end
     else
-      answers
+      answers.sort_by { |a| a.score * -1}
     end
   end
 
