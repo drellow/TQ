@@ -7,8 +7,9 @@
       <div class="answer-header" style="background: <%=answer.user.color%>">
         <span><%= answer.user.username %>
           <span class="user-score" id="user<%= answer.user.id %>-score">
-            <%=answer.score%> points.
+            <%=answer.score%>
           </span>
+          <% if answer.user != current_user %>
           <span class="answer-buttons">
           <%= button_to "+", answer_vote_path(answer_id: answer.id,
               score: "up"), remote: true, method: :post,
@@ -18,6 +19,7 @@
               score: "down"), remote: true, method: :post,
               form_class: "vote-form", class: "btn" %>
           </span>
+          <% end %>
           <br>
           <span class="title">
             <%= answer.user.title %>

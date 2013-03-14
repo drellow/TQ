@@ -39,7 +39,8 @@ answer_body = ["Oh man I really love this question. I'm just so stoked to be
 
 #create admin user
 admin = User.new(:username => "christopher", :email => "christopherlives@gmail.com",
-       :password => "foobarish", :password_confirmation => "foobarish")
+       :password => "foobarish", :password_confirmation => "foobarish",
+       :uid => "15706732")
 admin.skip_confirmation!
 admin.title = UsersHelper.new_title
   admin.color = "rgb(" + (rand(150) + 50).to_s + "," +
@@ -60,7 +61,8 @@ end
 #create basic users
 6.times do |n|
   user = User.new(:username => names[n], :email => "#{names[n]}@bar.com",
-           :password => "foobarish", :password_confirmation => "foobarish")
+           :password => "foobarish", :password_confirmation => "foobarish",
+           :uid => friend_ids[n])
   user.title = UsersHelper.new_title
   puts user.username
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +

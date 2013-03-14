@@ -7,7 +7,11 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    if Question.question_posted?
+      @questions = Question.all.select! { |q| q != Question.todays_question }
+    else
+      questions = Question.all
+    end
   end
 
   def today

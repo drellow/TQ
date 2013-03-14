@@ -32,8 +32,8 @@ class AnswersController < ApplicationController
   def vote
     # It always costs the current user 5
     # points to vote either up or down.
+    answer = Answer.find_by_id(params[:answer_id])
     if current_user.score >= 5
-      answer = Answer.find_by_id(params[:answer_id])
       if params[:score] == "up"
         answer.score += 5
         # I make sure the answer saves before updating user.
