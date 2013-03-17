@@ -9,13 +9,8 @@
   </div>
 
   <div class="span7">
-    <% unless @question.answers.empty? %>
-      <% @question.answers.each do |answer| %>
 
-        <%= render :partial => 'answers/uneditable_answer',
-                   :locals => { :answer => answer } %>
+    <%= render :partial => 'answers/show' %>
 
-      <% end %>
-    <% end %>
   </div>
 </div>

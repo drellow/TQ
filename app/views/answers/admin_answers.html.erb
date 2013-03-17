@@ -4,8 +4,8 @@
   </div>
 
   <div class="span7">
-    <% unless sorted_answers.empty? %>
-      <% sorted_answers.each do |answer| %>
+    <% unless @answers.empty? %>
+      <% @answers.each do |answer| %>
         <div class="user-answer">
           <div class="answer-header" style="background: <%=answer.user.color%>">
             <span><%= answer.user.username %>
