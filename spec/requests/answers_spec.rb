@@ -39,11 +39,12 @@ describe "Answering questions" do
     before do
       log_in user
       visit '/'
-      fill_in "answer[body]", with: "This is my answer"
+      fill_in "answer_body", with: "This is my answer"
       click_button "Answer"
     end
 
-    it { should_not have_selector("text-area") }
+    it { 
+      should_not have_selector("text-area") }
     it { should have_content("This is my answer") }
   end
 

@@ -17,7 +17,7 @@ describe "Basic page components" do
 
       before do
         log_in(user)
-        visit '/'
+        visit root_path
       end
 
       it { should have_link("Log out") }
@@ -33,7 +33,7 @@ describe "Basic page components" do
       before do
         make_admin(user)
         log_in user
-        visit '/'
+        visit admin_dashboard_path
       end
 
       it { should have_link("Update Question") }
