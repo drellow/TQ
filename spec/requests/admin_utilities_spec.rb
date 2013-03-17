@@ -22,12 +22,10 @@ describe "Posting answers" do
     before do
       make_admin user
       log_in user
-      visit '/'
+      visit admin_dashboard_path
       click_link("Post Answers")
     end
 
     it { should have_content(answer.body) }
   end
-
-
 end

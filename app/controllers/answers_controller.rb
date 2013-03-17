@@ -8,6 +8,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def admin_answers
+    @answers = Question.todays_question.answers
+  end
+
   def destroy
     Answer.find(params[:id]).destroy
     redirect_to admin_answers_path

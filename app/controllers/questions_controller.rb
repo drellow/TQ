@@ -4,6 +4,10 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    if @question == Question.todays_question && !Question.todays_answers_posted?
+      redirect_to root_path
+    end
+    @answers = @question.sorted_answers(current_user)
   end
 
   def index
@@ -16,7 +20,11 @@ class QuestionsController < ApplicationController
   end
 
   def today
-    @question = Question.todays_question
+    if Question.todays_answers_posted?
+      redirect_to Question.todays_question
+    else
+      render 'questions/today'
+    end
   end
 
   def release
