@@ -9,6 +9,10 @@ FactoryGirl.define do
     factory :admin do
       admin true
     end
+
+    after(:create) do |user|
+      user.confirm!
+    end
   end
 
   factory :question do

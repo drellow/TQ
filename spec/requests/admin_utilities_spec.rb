@@ -24,6 +24,7 @@ describe "Posting answers" do
       log_in user
       visit admin_dashboard_path
       click_link("Post Answers")
+      visit root_path
     end
 
     it { should have_content(answer.body) }
