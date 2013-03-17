@@ -7,10 +7,11 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    questions = Question.all.sort_by { |q| q.created_at }.reverse
     if Question.question_posted?
-      @questions = Question.all.select! { |q| q != Question.todays_question }
+      @questions = questions.select! { |q| q != Question.todays_question }
     else
-      @questions = Question.all
+      @questions = questions
     end
   end
 
