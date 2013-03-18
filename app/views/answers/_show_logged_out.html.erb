@@ -1,0 +1,38 @@
+<% @answers.each do |answer| %>
+  <div class="user-answer">
+    <div class="answer-header" style="background: <%=answer.user.color%>">
+      <span><%= answer.user.username %>
+        <span class="user-score" id="user<%= answer.user.id %>-score">
+          <%=answer.score%>
+        </span>
+        <span class="title">
+          <%= answer.user.title %>
+        </span>
+      </span>
+    </div>
+
+    <div class="answer-body">
+      <p>
+        <%= sanitize(simple_format(answer.body),
+          :tags => %w(br p) )%>
+      </p>
+    </div>
+
+    <div class="comment-toggle">
+      <span class="show-comments fake-link">Click to show comments
+        (<%=answer.comments.count %>)
+      </span>
+    </div>
+
+    <div class="comments">
+      <div class="comment-collection">
+      <%= render :partial => 'questions/comment',
+                 :collection => answer.comments %>
+      </div>
+      <span class="fake-link hide-comments">Click to hide
+        (<%=answer.comments.count %>)
+      </span>
+    </div>
+
+  </div>
+<% end %>

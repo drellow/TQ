@@ -25,7 +25,7 @@ class Question < ActiveRecord::Base
 
   def sorted_answers(current_user)
     answers = self.answers
-    if current_user.provider == "facebook"
+    if current_user && current_user.provider == "facebook"
       answers.sort_by do |a|
         [current_user.friends_with?(a.user) ? 0 : 1,
           a.score * -1]
