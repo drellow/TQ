@@ -1,9 +1,11 @@
 Tq::Application.routes.draw do
+  devise_for :users, :controllers => { :registrations => "registrations" }
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
   resources :users, :only => [:index, :edit, :update, :destroy]
   resources :questions
+  get '/about', to: 'static_pages#about'
   get '/admin_dashboard', to: 'admin_dashboard#dashboard'
   get '/admin_answers', to: 'answers#admin_answers'
   post '/email_question', to: 'admin_dashboard#email_question'

@@ -73,11 +73,8 @@ module UsersHelper
        Dolphins Couches Spoon Forks Magic Name_Brand_Desserts Stillness
        Ice Pork Handshakes Plastic Drainage Neckties Bubble_Gum Pickles
        Stains Swimming_Pools Bees Popcorn Trunks Trampolines Ketchup
-       Tea Mountain_Climbing Fence_Building Muck_Raking Dog_Sitting
-       Tooth_Aching Flat_Tires Unfinished_Novels Sword_Fighting
-       Staying_up_late Car_Parts Soup The_Dishes_We_Never_Use
-       Fence_Painting Book_Reading Snacks Charts Presentations
-       Executive_Summaries).sample.humanize.titlecase
+       Tea Mountain_Climbing Flat_Tires Sword_Fighting Car_Parts Soup 
+       Book_Reading Snacks Charts Presentations Jam).sample.humanize.titlecase
   end
 
   def self.singular
@@ -92,11 +89,11 @@ module UsersHelper
   end
 
   def self.verb
-    %w(Cries Jumps Visits Saws Chops Cooks Eats Bills Builds
-       Drives Rides Kills Makes Drinks Calls Reads Licks Borrows
-       Destroys Creates Consumes Throws Clothes Feeds Employs
-       Emails Quits Dunks Pops Compartmentalizes Moves Buys Pays
-       Sells Tries Collects Grows Climbs Clubs Strikes Hugs Paints
+    %w(Cries Jumps Saws Chops Cooks Eats Bills Builds Codes Paints
+       Drives Rides Kills Makes Drinks Reads Licks Borrows Twirls
+       Destroys Creates Consumes Throws Clothes Feeds Gets_Addicted_to
+       Emails Quits Dunks Pops Compartmentalizes Moves Buys Pays Pilots
+       Sells Collects Grows Climbs Clubs Strikes Hugs Paints Lands
        Kisses Breaks Watches Hears Fixes Sees Conducts).sample.humanize.titlecase
   end
 end

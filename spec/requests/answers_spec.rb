@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Answering questions" do
 
-  subject { page }
+  subject { page } 
 
   context "before logging in" do
     before { visit '/' }
