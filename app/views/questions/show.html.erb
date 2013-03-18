@@ -10,7 +10,11 @@
 
   <div class="span7">
 
-    <%= render :partial => 'answers/show' %>
+    <% if user_signed_in? %>
+      <%= render :partial => 'answers/show' %>
+    <% else %>
+      <%= render :partial => 'answers/show_logged_out' %>
+    <% end %>
 
   </div>
 </div>
