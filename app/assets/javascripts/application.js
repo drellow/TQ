@@ -53,6 +53,16 @@ $(document).ready(function() {
     $(this).parent().parent().find('.comment-toggle').removeClass('comments-on');
   })
 
+  $('.show-change-password').click(function() {
+    $('.change-password-info').addClass('change-password-on');
+    $('.show-change-password').addClass('change-password-on');
+  })
+
+  $('.hide-change-password').click(function() {
+    $('.change-password-info').removeClass('change-password-on');
+    $('.show-change-password').removeClass('change-password-on');
+  })
+
   $('select[name="colorpicker"]').simplecolorpicker();
 
 

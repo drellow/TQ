@@ -9,11 +9,11 @@
         <span class="answer-buttons">
         <%= button_to "+", answer_vote_path(answer_id: answer.id,
             score: "up"), remote: true, method: :post,
-            form_class: "vote-form", class: "btn" %>
+            form_class: "vote-form", class: "btn vote-button" %>
 
         <%= button_to "-", answer_vote_path(answer_id: answer.id,
             score: "down"), remote: true, method: :post,
-            form_class: "vote-form", class: "btn" %>
+            form_class: "vote-form", class: "btn vote-button" %>
         </span>
         <% end %>
         <br>
@@ -36,8 +36,8 @@
     </div>
 
     <div class="comment-toggle">
-      <span class="show-comments fake-link">Click to show
-        <%=answer.comments.count %> comments
+      <span class="show-comments fake-link">Click to comment
+        (<%=answer.comments.count %>)
       </span>
     </div>
 
@@ -54,7 +54,7 @@
         <%= f.submit "Add Comment", :class => "flat-button" %>
       <% end %>
       <span class="fake-link hide-comments">Click to hide
-        <%=answer.comments.count %> comments
+        (<%=answer.comments.count %>)
       </span>
     </div>
 

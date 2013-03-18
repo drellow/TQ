@@ -3,7 +3,7 @@
         <h3>People will like you more after signing up.</h3>
     </div>
     <div class="span7">
-      <div class="sign-up">
+      <div class="right-span-content sign-up">
       <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
@@ -11,8 +11,10 @@
           <%= f.input :email, :required => true, :autofocus => true %>
           <%= f.input :username, :required => true, :autofocus => true %>
           <%= f.input :title, :input_html =>
-                     {:value => UsersHelper.new_title },
-                      :id => "title" %>
+                     { :value => UsersHelper.new_title,
+                       :style => 'width: 80%',
+                     },
+                       :id => "title" %>
           <span class="fake-link new-title">Randomize Title
           </span>
 

@@ -21,7 +21,7 @@
 
           <%= f.input :username %>
 
-          <%= f.input :title, :id => "title", :input_html => {:style => 'width: 300px'} %>
+          <%= f.input :title, :id => "title", :input_html => {:style => 'width: 80%'} %>
 
           <span class="fake-link new-title">Randomize Title
           </span>
@@ -34,15 +34,21 @@
           <%= f.label "Daily emails for questions and answers?"%>
           <%= f.input :receives_email, as: :boolean %>
 
-          <%= f.input :password,
-                      :autocomplete => "off",
-                      :hint => " if changing password.",
-                      :required => false %>
+          <a class="show-change-password fake-link">Change your password?</a>
 
-          <%= f.input :password_confirmation, :required => false %>
-          <%= f.input :current_password,
-                      :hint => " to, like, confirm.",
-                      :required => true %>
+          <div class="change-password-info">
+
+            <%= f.input :password,
+                        :autocomplete => "off",
+                        :required => false %>
+
+            <%= f.input :password_confirmation, :required => false %>
+
+            <%= f.input :current_password,
+                        :required => true %>
+
+            <a class="hide-change-password fake-link">Not changing password?</a>
+          </div>
         </div>
 
         <div class="form-actions">

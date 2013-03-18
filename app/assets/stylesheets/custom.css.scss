@@ -14,6 +14,14 @@ a:hover {
   color: gray;
 }
 
+h1 {
+  text-shadow: 0px 1px 1px #4d4d4d;
+}
+
+.error {
+  padding: 5px;
+}
+
 .question-slot {
   background: #1C1C1C;
   margin-bottom: 5px;
@@ -221,10 +229,12 @@ textarea {
 
 .greeting {
   h1 {
-    color: black;
+    // color: black;
     float: left;
   }
-  color: #413D3D;
+  color: lightGray;
+  text-shadow: 0px 1px 1px #4d4d4d;
+  // color: #413D3D;
   margin-top: 50px;
   margin-bottom: 20px;
   border-top-right-radius: 0px;
@@ -237,6 +247,12 @@ textarea {
   font-weight: bold;
   margin-top: 30px;
   margin-right: 40px;
+}
+
+.navbar-inverse {
+  .navbar-inner {
+  background-image: none;
+}
 }
 
 .navbar-inner {
@@ -284,6 +300,7 @@ textarea {
   font-size: 30px;
   font-weight: bold;
   color: lightGray;
+  text-shadow: 0px 1px 1px #4d4d4d;
 }
 
 .answer-form {
@@ -358,6 +375,13 @@ textarea {
   display: none;
 }
 
+.change-password-info, .change-password-on.show-change-password {
+  display: none;
+}
+
+.show-change-password, .change-password-on.change-password-info {
+  display: block;
+}
 
 input.flat-button {
   color: black;
