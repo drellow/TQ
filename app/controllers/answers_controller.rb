@@ -52,6 +52,7 @@ class AnswersController < ApplicationController
       # Should eventually check if answer saves here too.
       # http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
       current_user.score -= 5
+      current_user.legacy_score += 1
       current_user.save!
     end
     render :json => {

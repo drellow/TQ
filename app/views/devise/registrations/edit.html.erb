@@ -34,10 +34,7 @@
           <%= f.label "Daily emails for questions and answers?"%>
           <%= f.input :receives_email, as: :boolean %>
 
-          <a class="show-change-password fake-link">Change your password?</a>
-
-          <div class="change-password-info">
-
+		  <% unless current_user.provider == "facebook" %>
             <%= f.input :password,
                         :autocomplete => "off",
                         :required => false %>
@@ -46,9 +43,7 @@
 
             <%= f.input :current_password,
                         :required => true %>
-
-            <a class="hide-change-password fake-link">Not changing password?</a>
-          </div>
+          <% end %>
         </div>
 
         <div class="form-actions">
@@ -56,11 +51,6 @@
                        :class => "flat-button" %>
         </div>
       <% end %>
-        <div>
-          <p> Signed up through Facebook? </p>
-          <p> You'll need to
-          <%= link_to "reset your password", reset_password_path, :method => "Post" %>. </p>
-        </div>
 
       </div>
     </div>

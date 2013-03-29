@@ -98,7 +98,7 @@ h1 {
     resize: none;
     width: 90%;
     margin: 20px;
-    height: 180px;
+    height: 100px;
     vertical-align: center;
     border-radius: 3px;
     box-shadow: inset 0px 0px 30px 5px #ECE1EC;
@@ -118,6 +118,10 @@ textarea {
   vertical-align: center;
   border-radius: 3px;
   box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+}
+
+textarea:focus {
+  box-shadow: inset 0px 0px 0px 0px #ECE1EC;
 }
 
 .form-actions {
@@ -243,7 +247,6 @@ textarea {
 
 .greeting_info {
   float: right;
-  color: black;
   font-weight: bold;
   margin-top: 30px;
   margin-right: 40px;
@@ -289,6 +292,7 @@ textarea {
   font-size: 14px;
   padding: 10px;
   color: lightGray;
+  border-bottom: 1px solid gray;
 }
 
 .answer-buttons {
@@ -327,11 +331,12 @@ textarea {
 }
 
 .show-comments {
-  padding: 12px;
+  margin: 12px;
+  line-height: 40px;
 }
 
 .hide-comments {
-  padding: 12px;
+  margin: 12px;
 }
 
 
@@ -375,12 +380,8 @@ textarea {
   display: none;
 }
 
-.change-password-info, .change-password-on.show-change-password {
-  display: none;
-}
-
-.show-change-password, .change-password-on.change-password-info {
-  display: block;
+.comment-button {
+	float: right;
 }
 
 input.flat-button {
