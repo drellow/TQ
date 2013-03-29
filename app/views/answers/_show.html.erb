@@ -35,13 +35,13 @@
       </p>
     </div>
 
-    <div class="comment-toggle">
+    <div class="comment-toggle comments-on">
       <span class="show-comments fake-link">Click to comment
         (<%=answer.comments.count %>)
       </span>
     </div>
 
-    <div class="comments">
+    <div class="comments comments-on">
       <div class="comment-collection">
       <%= render :partial => 'questions/comment',
                  :collection => answer.comments %>
@@ -50,8 +50,9 @@
       <%= form_for([answer, answer.comments.build],
           :remote => true, :class => "new_comment" ) do |f| %>
 
-        <%= f.text_area :body, :class => "comment_field" %>
-        <%= f.submit "Add Comment", :class => "flat-button" %>
+        <%= f.text_area :body, :placeholder => "Comment on #{answer.user.username}'s answer...", 
+						:class => "comment-field" %>
+        <%= f.submit "Add Comment", :class => "flat-button comment-button" %>
       <% end %>
       <span class="fake-link hide-comments">Click to hide
         (<%=answer.comments.count %>)
