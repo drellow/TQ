@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20130301213324) do
     t.integer  "answer_id"
     t.integer  "user_id"
     t.string   "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "read",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "notifiers", :force => true do |t|
