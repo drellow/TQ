@@ -19,7 +19,7 @@
 			    </a>
 			    <ul class="dropdown-menu">
 						<% unread_comments.each do | comment | %>
-			      	<li><%= link_to "#{comment.user.username} commented on your post", 											answer_path_for_comment(comment) %></li>
+			      	<li><%= link_to "#{comment.user.username} commented on your post", 											answer_path_for_comment(comment), :class => "dropdown-item" %></li>
 						<% end %>
 			    </ul>
 				</li>        

@@ -48,6 +48,7 @@ admin.title = UsersHelper.new_title
                        (rand(150) + 50).to_s + ")"
 admin.legacy_score = rand(123345)
 admin.toggle!(:admin)
+users << admin
 admin.save!
 
 #create today's question
@@ -90,6 +91,7 @@ end
   user.save!
 end
 
+#build answers
 20.times do |n|
   10.times do |i|
     answer = users[i].answers.build(:body => answer_body.sample, :question_id => n).save!
@@ -97,9 +99,10 @@ end
   end
 end
 
-
-7.times do |i|
-  Question.first.answers.first.comments.build(:user_id => (i + 1), :body => answer_body.sample).save!
+2.times do |j|
+  7.times do |i|
+    Question.first.answers.where(:user_id => j + 1).first.comments.build(:user_id => (i + j + 1), :body => answer_body.sample).save!
+  end
 end
 
 puts users

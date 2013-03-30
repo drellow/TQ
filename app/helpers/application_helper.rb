@@ -19,7 +19,7 @@ module ApplicationHelper
   end
   
   def unread_comments
-    Comment.where(:read => false, :user_id => current_user.id)
+    Comment.where(:read => false).select! { |c| c.answer.user == current_user && c.user != current_user }
   end
   
   def answer_path_for_comment(comment)
