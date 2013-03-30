@@ -55,6 +55,10 @@ h1 {
   margin-bottom: 5px;
 }
 
+.dropdown-item {
+	color: gray;
+}
+
 .scoreboard-title {
   color: #4D0000;
   padding: 5px;
@@ -254,8 +258,8 @@ textarea:focus {
 
 .navbar-inverse {
   .navbar-inner {
-  background-image: none;
-}
+	  background-image: none;
+	}
 }
 
 .navbar-inner {
@@ -263,7 +267,6 @@ textarea:focus {
   background-color: black;
   padding-top: 10px;
   a {
-    color: white;
     padding: 10px;
   }
   a:hover {
