@@ -17,5 +17,13 @@ module ApplicationHelper
       end
     end
   end
+  
+  def unread_comments
+    Comment.where(:read => false, :user_id => current_user.id)
+  end
+  
+  def answer_path_for_comment(comment)
+    comment.answer.question
+  end
 
 end
