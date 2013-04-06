@@ -1,5 +1,5 @@
 
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
         <% tq = TqHelper.new_tq %>
@@ -9,20 +9,22 @@
 
       <ul class="nav pull-right">
 
-
         <li><%= link_to "Scoreboard", scoreboard_path %></li>
+        
 				<% if user_signed_in? %>
 			  <li class="dropdown">
 			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			      New Comments (<%= unread_comments.count %>)
+			      <i class="icon-inbox"> </i>
 			      <b class="caret"></b>
 			    </a>
-			    <ul class="dropdown-menu">
-						<% unread_comments.each do | comment | %>
-			      	<li><%= link_to "#{comment.user.username} commented on your post", 											answer_path_for_comment(comment), :class => "dropdown-item" %></li>
+			    <ul class="dropdown-menu dropdown-flat">
+						<% feeditems.each do | feeditem | %>
+			      	<li><%= link_to "#{feeditem.body}",
+                feed_item_path(feeditem), :method => :put, :class => "dropdown-item" %></li>
 						<% end %>
 			    </ul>
-				</li>        
+				</li>
+                
           <li><%= link_to "Profile",
             edit_user_registration_path %></li>
         <li><%= link_to "About", about_path %></li>        <% end %>
