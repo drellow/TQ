@@ -18,7 +18,7 @@ Tq::Application.routes.draw do
 
   resources :answers do
     post 'vote', to: 'answers#vote'
-    resources :comments, :only => [:create, :destroy]
+    resources :comments, :only => [:create, :destroy, :update]
   end
 
   root :to => 'questions#today'

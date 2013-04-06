@@ -10,5 +10,9 @@ class ApplicationController < ActionController::Base
   def admin_user
     redirect_to(root_path) unless current_user.admin?
   end
+  
+  def feeditems
+    current_user.feeditems
+  end
 
 end

@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
     user.email = email.downcase
   end
 
-  has_many :stars
   has_many :questions
   has_many :answers
   has_many :comments, :through => :answers
@@ -27,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :fan_relationships, :class_name => "Relationship",
            :foreign_key => :hero_id
   has_many :fans, :through => :fan_relationships
+  has_many :feeditems
 
   def self.find_by_facebook_auth(auth)
     user = User.where(:email => auth.info.email).first

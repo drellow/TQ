@@ -1,5 +1,5 @@
 <% @answers.each do |answer| %>
-  <div class="user-answer" id="<%=answer.id%>">
+  <div class="user-answer">
     <div class="answer-header" style="background: <%=answer.user.color%>">
       <span><%= answer.user.username %>
         <span class="user-score" id="user<%= answer.user.id %>-score">
@@ -39,9 +39,11 @@
       <span class="show-comments fake-link">Click to comment
         (<%=answer.comments.count %>)
       </span>
-	  <% answer.comments.each do |comment| %>
-	  	<span class="show-comments"><%= comment.user.username %></span>,
-	  <% end %> commented. 
+			<!-- <span class="commentors">
+		  	Comments from: <% answer.comments.each do |comment| %>
+			  	<%= comment.user.username %>
+			  <% end %>
+			</span> -->
     </div>
 
     <div class="comments comments-on">
@@ -57,9 +59,7 @@
 						:class => "comment-field" %>
         <%= f.submit "Add Comment", :class => "flat-button comment-button" %>
       <% end %>
-      <span class="fake-link hide-comments">Click to hide
-        (<%=answer.comments.count %>)
-      </span>
+      <span class="fake-link hide-comments">Click to hide comments.</span>
     </div>
 
   </div>

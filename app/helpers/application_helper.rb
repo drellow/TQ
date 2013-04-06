@@ -18,12 +18,12 @@ module ApplicationHelper
     end
   end
   
-  def unread_comments
-    Comment.where(:read => false).select! { |c| c.answer.user == current_user && c.user != current_user }
+  def activity_feed
+    new_comments = Comment.where(:read => false).select! { |c| c.answer.user == current_user && c.user != current_user }
+    if new_comments.count > 0
+      {:feed_count => new_comments.count, :items => new_comments}
+    else
+      {:feed_count => 0, :items => Comment.all.select! { |c| c.answer.user == current_user && c.user != current_user }[0..10]}
+    end
   end
-  
-  def answer_path_for_comment(comment)
-    comment.answer.question
-  end
-
 end
