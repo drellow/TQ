@@ -20,6 +20,7 @@ Tq::Application.routes.draw do
     post 'vote', to: 'answers#vote'
     resources :comments, :only => [:create, :destroy, :update]
   end
+  resources :feed_items, :only => :update
 
   root :to => 'questions#today'
 end

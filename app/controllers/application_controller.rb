@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path) unless current_user.admin?
   end
   
-  def feeditems
-    current_user.feeditems
+  def read_item(feeditem)
+    self.read = true
+    self.save!
+    redirect_to "#{self.path}"
   end
-
 end
