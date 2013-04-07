@@ -9,35 +9,36 @@
 
       <ul class="nav pull-right">
 
+        <% if user_signed_in? %>
         <li><%= link_to "Scoreboard", scoreboard_path %></li>
-        
-				<% if user_signed_in? %>
-			  <li class="dropdown">
+        <li><%= link_to "About", about_path %></li>
+          <% if current_user && current_user.admin? %>
+            <li><%= link_to "Admin",
+                  admin_dashboard_path %></li>
+          <% end %>
+        <li><%= link_to "Todays Question",
+              new_question_path %></li>
+        <li><%= link_to '<i class="icon-cog icon-large"></i>'.html_safe,
+          edit_user_registration_path %></li>   			  
+          <li class="dropdown noti-container">
 			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			      <i class="icon-inbox"> </i>
-			      <b class="caret"></b>
+			      <i class="icon-envelope-alt icon-large">
+              <% if current_user.unread_item_count > 0 %><p class="noti-badge">
+              <%= current_user.unread_item_count %></p>
+              <% end %>
+            </i>
 			    </a>
 			    <ul class="dropdown-menu dropdown-flat">
-						<% feeditems.each do | feeditem | %>
-			      	<li><%= link_to "#{feeditem.body}",
-                feed_item_path(feeditem), :method => :put, :class => "dropdown-item" %></li>
+						<% current_user.feed_items.each do | feeditem | %>
+			      	<li class="read<%= feeditem.read %>">
+                <%= link_to "#{feeditem.body}",
+                feeditem, :method => :put, :class => "dropdown-item" %>
+              </li>
 						<% end %>
 			    </ul>
 				</li>
-                
-          <li><%= link_to "Profile",
-            edit_user_registration_path %></li>
-        <li><%= link_to "About", about_path %></li>        <% end %>
-        <% if current_user && current_user.admin? %>
-          <li><%= link_to "Admin",
-                admin_dashboard_path %></li>
-          <li><%= link_to "Todays Question",
-                new_question_path %></li>
-        <% end %>
-
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path,
-                :method => :delete %></li>
+        <li><%= link_to "Log out", destroy_user_session_path,
+              :method => :delete %></li>
         <% else %>
           <li><%= link_to "Log in", new_user_session_path %></li>
           <li><%= link_to "Sign up",

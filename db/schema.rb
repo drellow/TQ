@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405011639) do
+ActiveRecord::Schema.define(:version => 20130406204140) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -32,11 +32,13 @@ ActiveRecord::Schema.define(:version => 20130405011639) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "user_id"
-    t.text     "body"
-    t.string   "scope"
-    t.string   "link"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "comment_id"
+    t.integer  "scope"
+    t.string   "path"
+    t.string   "body"
+    t.boolean  "read",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "notifiers", :force => true do |t|

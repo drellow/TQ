@@ -26,7 +26,16 @@ class User < ActiveRecord::Base
   has_many :fan_relationships, :class_name => "Relationship",
            :foreign_key => :hero_id
   has_many :fans, :through => :fan_relationships
-  has_many :feeditems
+
+  def feed_items
+    FeedItem.where(:user_id => self.id).sort_by do |feeditem|
+      feeditem.read? ? 1 : 0
+    end[0..10]
+  end
+  
+  def unread_item_count
+    FeedItem.where(:user_id => self.id, :read => false).count
+  end
 
   def self.find_by_facebook_auth(auth)
     user = User.where(:email => auth.info.email).first
