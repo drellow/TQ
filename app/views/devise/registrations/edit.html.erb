@@ -34,7 +34,7 @@
           <%= f.label "Daily emails for questions and answers?"%>
           <%= f.input :receives_email, as: :boolean %>
 
-		  <% unless current_user.provider == "facebook" %>
+          <% unless current_user.provider == "facebook" %>
             <%= f.input :password,
                         :autocomplete => "off",
                         :required => false %>
