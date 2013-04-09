@@ -35,18 +35,16 @@
       </p>
     </div>
 
-    <div class="comment-toggle comments-on">
+    <% commentstatus = answer.comments.empty? ? "" : "comments-on" %>
+
+    <div class="comment-toggle <%= commentstatus %>">
       <span class="show-comments fake-link">Click to comment
         (<%=answer.comments.count %>)
       </span>
-			<!-- <span class="commentors">
-		  	Comments from: <% answer.comments.each do |comment| %>
-			  	<%= comment.user.username %>
-			  <% end %>
-			</span> -->
+
     </div>
 
-    <div class="comments comments-on">
+    <div class="comments <%= commentstatus %>">
       <div class="comment-collection">
       <%= render :partial => 'questions/comment',
                  :collection => answer.comments %>
