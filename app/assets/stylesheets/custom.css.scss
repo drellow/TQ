@@ -102,17 +102,22 @@ h1 {
     resize: none;
     width: 90%;
     margin: 20px;
+    height: 18px;
+    vertical-align: center;
+    border-radius: 3px;
+    border: 1px solid black;
+    box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+  }
+  textarea:focus {
+    resize: none;
+    width: 90%;
+    margin: 20px;
     height: 100px;
     vertical-align: center;
     border-radius: 3px;
+    background: white;
     box-shadow: inset 0px 0px 30px 5px #ECE1EC;
   }
-  // input {
-  //   float: right;
-  //   margin-right: 20px;
-  //   font-size: 12px;
-  //   text-align: center;
-  // }
 }
 
 textarea {

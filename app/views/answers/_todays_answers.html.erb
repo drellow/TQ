@@ -38,14 +38,14 @@
             :tags => %w(br p) )%>
         </p>
       </div>
-
-      <div class="comment-toggle">
+      
+      <div class="comment-toggle <%= commentstatus %>">
         <span class="show-comments fake-link">Click to show
           <%=answer.comments.count %> comments
         </span>
       </div>
 
-      <div class="comments">
+      <div class="comments <%= commentstatus %>">
         <div class="comment-collection">
         <%= render :partial => 'questions/comment',
                    :collection => answer.comments %>
