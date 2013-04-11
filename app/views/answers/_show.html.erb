@@ -38,8 +38,9 @@
     <% commentstatus = answer.comments.empty? ? "" : "comments-on" %>
 
     <div class="comment-toggle <%= commentstatus %>">
-      <span class="show-comments fake-link">Click to comment
-        (<%=answer.comments.count %>)
+      <span class="show-comments fake-link">
+        <%=answer.comments.count %>
+        <i class="icon-comment"></i>
       </span>
 
     </div>

@@ -105,18 +105,21 @@ h1 {
     height: 18px;
     vertical-align: center;
     border-radius: 3px;
+    color: white;
     border: 1px solid black;
-    box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+    background: rgba(100,100,100,0.2);
+    box-shadow: inset 0px 0px 30px 5px #0F0F0F;
   }
   textarea:focus {
     resize: none;
     width: 90%;
     margin: 20px;
     height: 100px;
+    color: white;
     vertical-align: center;
     border-radius: 3px;
-    background: white;
-    box-shadow: inset 0px 0px 30px 5px #ECE1EC;
+    background: rgba(100,100,100,0.2);
+    box-shadow: inset 0px 0px 30px 5px #0F0F0F;
   }
 }
 
@@ -382,6 +385,7 @@ textarea:focus {
 .comments {
   padding: 10px;
   color: gray;
+  background: #0F0F0F;
   .comment-title {
     color: lightGray;
   }
