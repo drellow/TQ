@@ -58,7 +58,10 @@
 						:class => "comment-field" %>
         <%= f.submit "Add Comment", :class => "flat-button comment-button" %>
       <% end %>
-      <span class="fake-link hide-comments">Click to hide comments.</span>
+      <span class="fake-link hide-comments">
+        <%=answer.comments.count %>
+        <i class="icon-comment-alt"></i>
+      </span>
     </div>
 
   </div>
