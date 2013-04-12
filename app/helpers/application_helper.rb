@@ -5,7 +5,9 @@ module ApplicationHelper
     if high_or_low == "high"
       @sorted_users[0..9]
     else
-      @sorted_users[-10..-1].reverse
+      @sorted_users[-10..-1].reverse.select! do |user|
+        user.answers.count > 0
+      end
     end
   end
 
