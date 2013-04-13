@@ -4,7 +4,7 @@
   </div>
 
   <div class="span7">
-    <ul>
+    <ul class="users">
       <li>
         <% if Question.question_posted? &&
               Question.todays_answers_posted? %>
@@ -12,11 +12,13 @@
         <% else %>
           <% posted_message = "Post Answers" %>
         <% end %>
-        <%= link_to posted_message, post_answers_path, :method => :post %>
+        <%= button_to posted_message, post_answers_path, :class => "flat-button", 
+                :method => :post, :confirm => "Are you sure you want to #{posted_message}" %>
       </li>
       <li>
-        <%= link_to "Mail Out the Answers", email_answers_path,
-                :method => :post %>
+        <%= button_to "Mail Out the Answers", email_answers_path,
+                :class => "flat-button", :method => :post, 
+                :confirm => "Mail out answers?" %>
       </li>
       <li>
         <%= link_to "Administrate Answers", admin_answers_path %>
