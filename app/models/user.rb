@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
 
   def feed_items
     FeedItem.where(:user_id => self.id).sort_by do |feeditem|
-      feeditem.read? ? 1 : 0
+      [feeditem.read? ? 1 : 0,
+       -1 * feeditem.created_at.to_i]
     end[0..10]
   end
   
