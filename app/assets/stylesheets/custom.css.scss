@@ -292,13 +292,13 @@ textarea:focus {
 .navbar-inverse {
   .navbar-inner {
 	  background-image: none;
-		background-color: #222;
+		background-color: rgba(0,0,0,0.1);
 	}
 }
 
 .navbar-inner {
   border-radius: 0px;
-  background: #222;
+  background: rgba(0,0,0,0.1);
   padding-top: 10px;
   a {
     padding: 10px;
