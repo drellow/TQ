@@ -47,12 +47,14 @@ h1 {
   font-weight: bold;
   font-size: 20px;
   padding: 5px;
-  color: #4D0000;
+  color: white;
   float: left;
 }
 
 .scoreboard-slot {
-  margin-bottom: 5px;
+  margin: 0 5px 5px 5px;
+  padding: 3px 5px 2px 5px;
+  border-bottom: 5px solid rgba(0,0,0,0.2);
 }
 
 .dropdown-item {
@@ -60,13 +62,13 @@ h1 {
 }
 
 .scoreboard-title {
-  color: #4D0000;
+  color: white;
   padding: 5px;
   clear: left;
 }
 
 .scoreboard-score {
-  color: #4D0000;
+  color: white;
   padding: 5px;
   margin: 10px;
   float: right;
@@ -126,13 +128,15 @@ h1 {
 textarea {
   resize: none;
   width: 90%;
-  color: white;
-  border: 1px solid black;
+  margin: 0 20px 20px 20px;
   height: 180px;
   vertical-align: center;
-  border-radius: 3px;
-  background: rgba(100,100,100,0.2);
-  box-shadow: inset 0px 0px 30px 5px #0F0F0F;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  border-top: 5px solid rgba(0,0,0,0.2);
+  background: #333;
+  color: white;
 }
 
 textarea:focus {
