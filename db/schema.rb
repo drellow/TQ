@@ -63,13 +63,6 @@ ActiveRecord::Schema.define(:version => 20130406204140) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "stars", :force => true do |t|
-    t.integer  "answer_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "color",                  :default => "#B1ABAB"

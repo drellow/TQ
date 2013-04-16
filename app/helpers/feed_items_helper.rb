@@ -60,13 +60,13 @@ module FeedItemsHelper
   end
 
   def self.plural
-    %w(Monsters Dragons Doom Swelling Teeth Chocolate Cupcakes Presidents
-       Airplanes Computers Styrofoam Carpet Beer Waffles Melons Clocks
-       Dolphins Couches Spoon Forks Magic Name_Brand_Desserts 
-       Ice Pork Handshakes Plastic Drainage Neckties Bubble_Gum Pickles
-       Stains Swimming_Pools Bees Popcorn Trunks Trampolines Ketchup
-       Tea Flat_Tires Sword_Fighting Car_Parts Soup 
-       Snacks Charts Presentations Jam).sample.humanize.downcase
+    %w(Monsters Dragons Teeth Chocolate Cupcakes Presidents ballers
+       Airplanes Computers Waffles Melons Clocks sprites players
+       Dolphins Couches Spoons Forks Name_Brand_Desserts friends cans
+       Handshakes Plastic Neckties Pickles skaters punks kids rats 
+       Stains Swimming_Pools Bees Trunks Trampolines Ketchup nerds cowards
+       Flat_Tires Car_Parts cowboys anarchists senators dorks heroes beans
+       Snacks Charts Presentations).sample.humanize.downcase
   end
 
   def self.singular
@@ -81,12 +81,15 @@ module FeedItemsHelper
   end
 
   def self.past_verb
-    %w(cried fell dunked cooked_shellfish ate_a_dog built coded painted
+    %w(cried fell dunked cooked_shellfish ate drank built coded painted
        drove rode killed Drinks read licked borrowed twirled_and_twirled
        destroyed created consumed threw clothed fed got_addicted_to
        emailed quilted dunked popped comparmentalized move bought paid piloted
        sold collected grew climbed clubbed struck hugged painted landed
-       kissed broke watched heard fixed saw conducted hid_behind played).sample.humanize.downcase
+       kissed broke watched heard fixed saw conducted hid_behind played
+       skinned fought poked prodded kissed hugged smiled_at thanked ran_around
+       biked_towards drove_to_see took_photos_of restrung tampered_with
+       convinved helped_establish usually_liked).sample.humanize.downcase
   end
   
   def self.present_verb
@@ -94,7 +97,10 @@ module FeedItemsHelper
        swordfighting drinking_beers reading_books eating sitting_down
        doing_nothing_really smiling picking_up_hitchhikers driving_a_truck
        tuning_a_guitar seeing_something_weird seeing_someone_else making_out
-       drinking_port).sample.humanize.downcase
+       drinking_port messaging_me answering_questions chatting_on_aim
+       being_nice playing_guitar fishing moving_furniture skating_on_thin_ice
+       shooting_guns acting_coy opening_the_window sneaking_around 
+       parsing_the_meaning_of_it taking_notes).sample.humanize.downcase
   end
   
   def self.adverb
