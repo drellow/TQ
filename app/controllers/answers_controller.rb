@@ -23,6 +23,7 @@ class AnswersController < ApplicationController
       current_user.score += 50
       current_user.legacy_score += 50
       current_user.save!
+      current_user.maybe_generate_feed_item
       redirect_to root_url
     else
       redirect_to root_url

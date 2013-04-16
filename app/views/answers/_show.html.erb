@@ -56,7 +56,7 @@
 
         <%= f.text_area :body, :placeholder => "Comment on #{answer.user.username}'s answer...", 
 						:class => "comment-field" %>
-        <%= f.submit "Add Comment", :class => "flat-button comment-button" %>
+        <%= f.submit "Add Comment", :disable_with => "Saving...", :class => "flat-button comment-button" %>
       <% end %>
       <span class="fake-link hide-comments">
         <%=answer.comments.count %>

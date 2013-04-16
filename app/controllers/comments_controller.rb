@@ -15,6 +15,8 @@ class CommentsController < ApplicationController
       commenters << c.user
     end
     
+    current_user.maybe_generate_feed_item
+    
     commenters.uniq.each do |commenter|
       next if commenter == current_user || commenter == answer.user
       FeedItem.create(:user_id => commenter.id, :scope => answer.id, 
