@@ -34,6 +34,14 @@ class User < ActiveRecord::Base
     end[0..10]
   end
   
+  def maybe_generate_feed_item
+    if rand(50) == 7
+      feed_item = FeedItemsHelper.bullshit_feed_item
+      FeedItem.create!(:user_id => self.id, :body => feed_item,
+                      :scope => rand(90000), :path => '/')
+    end
+  end
+  
   def unread_item_count
     FeedItem.where(:user_id => self.id, :read => false).count
   end
