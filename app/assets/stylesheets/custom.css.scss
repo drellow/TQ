@@ -22,10 +22,6 @@ h1 {
   padding: 5px;
 }
 
-.dropdown-flat.dropdown-menu {
-  border-radius: none;
-}
-
 .question-slot {
   background: #1C1C1C;
   margin-bottom: 5px;
@@ -64,6 +60,12 @@ h1 {
 
 .dropdown-item {
 	color: gray;
+}
+
+ul.dropdown-menu.dropdown-flat {
+  padding: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid gray;
 }
 
 .scoreboard-title {
@@ -350,8 +352,15 @@ textarea:focus {
   }
 }
 
+.dropdown-menu li a {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+}
+
 .dropdown-menu li a:hover {
   background: #222222;
+  -webkit-transition: all 0s ease-out;
+  -moz-transition: all 0s ease-out;
 }
 
 .noti-badge {
