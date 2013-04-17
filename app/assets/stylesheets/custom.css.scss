@@ -183,6 +183,15 @@ textarea:focus {
     background-color: black;
     color: white;
     border-radius: 5px;
+    margin-bottom: -100px;  
+  a {
+    color: gray;
+    padding: 10px;
+  }
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .span5 {
