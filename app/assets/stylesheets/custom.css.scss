@@ -199,8 +199,11 @@ textarea:focus {
 
 .alerts {
   .alert, .notice {
-    background: none;
+    color: white;
+    text-shadow: 0px 1px 1px #4d4d4d;
     border-radius: 0px;
+    background-color: none;
+    background: none;
     border: none;
     padding-top: 0px;
     box-shadow: none;

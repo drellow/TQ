@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406204140) do
+ActiveRecord::Schema.define(:version => 20130417004153) do
 
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20130406204140) do
   create_table "comments", :force => true do |t|
     t.integer  "answer_id"
     t.integer  "user_id"
-    t.string   "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "body",       :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "feed_items", :force => true do |t|
