@@ -21,13 +21,13 @@ class CommentsController < ApplicationController
       next if commenter == current_user || commenter == answer.user
       FeedItem.create(:user_id => commenter.id, :scope => answer.id, 
                       :path => "/questions/#{answer.question.id}#comment#{@comment.id}",
-                      :body => "#{@comment.user.username} commented on the same thread: #{@comment.body[0..40]}...")
+                      :body => "#{@comment.user.username} commented on the same thread: \"#{@comment.body[0..40]}...\"")
     end
     
     unless answer.user == current_user
       FeedItem.create(:user_id => answer.user_id, :scope => answer.id, 
                       :path => "/questions/#{answer.question.id}#comment#{@comment.id}",
-                      :body => "#{@comment.user.username} commented on your post: #{@comment.body[0..50]}...")
+                      :body => "#{@comment.user.username} commented on your post: \"#{@comment.body[0..50]}...\"")
     end
     if request.xhr?
       render 'questions/comment', :layout => false
