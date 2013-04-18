@@ -411,27 +411,27 @@ textarea:focus {
   }
 }
 
-.pretty-button {
-
-}.pretty-button:hover {
-
-}.pretty-button:active {
-
-}
-
-
 .comments {
   padding: 10px;
   color: gray;
   background: #0F0F0F;
-  .comment-title {
-    color: lightGray;
+}
+
+.comment-title {
+  float: left;
+  color: lightGray;
+}
+
+.comment-date {
+  float: right;
+  color: white;
+}
+
+.comment-body {
+  clear: both;
+  span {
+  	color: white;
   }
-	.comment-body {
-		span {
-			color: white;
-		}
-	}
 }
 
 .commentors {
