@@ -159,26 +159,35 @@ textarea:focus {
     width: 35px;
     height: 20px;
     background  : rgba(255,255,255,0.2);
-    cursor  : pointer;
     font-family : Helvetica;
     font-size: 15px;
     color   : #fff;
     border  : none;
     margin      : 0px;
     padding     : 0px;
+    border-top: 2px solid rgba(255,255,255,0.2);
+    vertical-align:middle;
+    
   }
   input:hover {
-    font-size: 15px;
+    background  : rgba(255,255,255,0.3);
+  }
+  input:active {
+    background  : rgba(255,255,255,0.2);
+    border-top: none;
   }
 }
 
 .answer-buttons {
-  float: right;
-  margin-top: -15px;
+  float: right;  
   text-align: center;
+  
+  margin-top: -15px;
+  width: 35px;
 }
 
-.user-score {
+.user-score {  
+  
   font-size: 14px;
 }
 
@@ -398,7 +407,7 @@ textarea:focus {
 }
 
 .answer-header {
-  padding: 20px;
+  padding: 15px;
   font-size: 30px;
   font-weight: bold;
   color: lightGray;

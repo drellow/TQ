@@ -3,7 +3,7 @@
     <div class="answer-header" style="background: <%=answer.user.color%>">
       <span><%= answer.user.username %></span>
 
-        <% if answer.user != current_user %>
+        <% if answer.user != current_user && current_user.score >= 5 %>
         <span class="answer-buttons">
         <%= button_to "▲", answer_vote_path(answer_id: answer.id,
             score: "up"), remote: true, method: :post,
