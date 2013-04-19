@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default :from => "info@thetq.net"
+  default :from => "\"Wolfff TQ\" <info@thetq.net>"
 
   # send a signup email to the user, pass in the user object that contains the user's email address
   # def signup_email(user)
