@@ -1,23 +1,26 @@
 <% @answers.each do |answer| %>
   <div class="user-answer">
     <div class="answer-header" style="background: <%=answer.user.color%>">
-      <span><%= answer.user.username %>
-        <span class="user-score" id="user<%= answer.user.id %>-score">
-          <%=answer.score%>
-        </span>
+      <span><%= answer.user.username %></span>
+
         <% if answer.user != current_user %>
         <span class="answer-buttons">
-        <%= button_to "+", answer_vote_path(answer_id: answer.id,
+        <%= button_to "▲", answer_vote_path(answer_id: answer.id,
             score: "up"), remote: true, method: :post,
-            form_class: "vote-form", class: "btn vote-button" %>
-
-        <%= button_to "-", answer_vote_path(answer_id: answer.id,
+            form_class: "vote-form", class: "vote-button" %>
+            <br />
+            <span class="user-score" id="user<%= answer.user.id %>-score">
+              <%=answer.score%>
+            </span>
+            <br />
+        <%= button_to "▼", answer_vote_path(answer_id: answer.id,
             score: "down"), remote: true, method: :post,
-            form_class: "vote-form", class: "btn vote-button" %>
+            form_class: "vote-form", class: "vote-button" %>
         </span>
         <% end %>
+        
         <br>
-        <span class="title">
+        <span class="user-title">
           <%= answer.user.title %>
         </span>
         <% if current_user.provider == "facebook" && current_user.friends_with?(answer.user) %>
@@ -25,7 +28,6 @@
                 Your friend.
           </span>
         <% end %>
-      </span>
     </div>
 
     <div class="answer-body">
