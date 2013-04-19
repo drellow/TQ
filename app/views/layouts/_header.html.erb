@@ -37,7 +37,7 @@
 						<% end %>
 			    </ul>
 				</li>
-        <li><%= link_to "Log out", destroy_user_session_path,
+        <li><%= link_to '<i class="icon-signout icon-large"></i>'.html_safe, destroy_user_session_path,
               :method => :delete %></li>
         <% else %>
           <li><%= link_to "Log in", new_user_session_path %></li>
