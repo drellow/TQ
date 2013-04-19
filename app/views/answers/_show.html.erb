@@ -2,6 +2,11 @@
   <div class="user-answer">
     <div class="answer-header" style="background: <%=answer.user.color%>">
       <span><%= answer.user.username %></span>
+      <% if current_user.provider == "facebook" && current_user.friends_with?(answer.user) %>
+        <span class="fb-friend">
+              Your friend.
+        </span>
+      <% end %>
 
         <% if answer.user != current_user && current_user.score >= 5 %>
         <span class="answer-buttons">
@@ -23,11 +28,7 @@
         <span class="user-title">
           <%= answer.user.title %>
         </span>
-        <% if current_user.provider == "facebook" && current_user.friends_with?(answer.user) %>
-          <span class="fb-friend">
-                Your friend.
-          </span>
-        <% end %>
+
     </div>
 
     <div class="answer-body">
