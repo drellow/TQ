@@ -94,17 +94,12 @@ ul.dropdown-menu.dropdown-flat {
   border-radius: 2px;
 }
 
-.title {
+.user-title {
   font-size: 12px;
   color: white;
   padding: 2px;
   border-radius: 2px;
 }
-
-.user-score {
-  font-size: 14px;
-}
-
 
 .depracated {
   textarea {
@@ -162,20 +157,29 @@ textarea:focus {
     display: inline;
   input {
     width: 35px;
-    height: 35px;
-    background  : none;
+    height: 20px;
+    background  : rgba(255,255,255,0.2);
     cursor  : pointer;
     font-family : Helvetica;
-    border-radius: 2px;
-    font-size: 30px;
+    font-size: 15px;
     color   : #fff;
     border  : none;
     margin      : 0px;
     padding     : 0px;
   }
   input:hover {
-    font-size: 35px;
+    font-size: 15px;
   }
+}
+
+.answer-buttons {
+  float: right;
+  margin-top: -15px;
+  text-align: center;
+}
+
+.user-score {
+  font-size: 14px;
 }
 
 .footer {
@@ -391,10 +395,6 @@ textarea:focus {
   padding: 10px;
   color: lightGray;
   border-bottom: 1px solid gray;
-}
-
-.answer-buttons {
-  float: right;
 }
 
 .answer-header {
