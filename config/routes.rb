@@ -6,6 +6,10 @@ Tq::Application.routes.draw do
 
   resources :users, :only => [:index, :edit, :update, :destroy]
   resources :questions
+  resources :suggestions, :only => [:index, :create]
+  resources :suggestions do
+    post 'vote', to: 'suggestions#vote'
+  end
   get '/about', to: 'static_pages#about'
   get '/admin_dashboard', to: 'admin_dashboard#dashboard'
   get '/admin_answers', to: 'answers#admin_answers'

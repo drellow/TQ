@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_filter :admin_user, :only => :admin_answers
+  before_filter :admin_user, :only => :admin_answers, :destroy
 
   def new
     if current_user.answered_today?
