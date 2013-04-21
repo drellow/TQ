@@ -105,4 +105,8 @@ end
   end
 end
 
+users.each do |u|
+  u.suggestions.build(:body => questions.sample).save!
+end
+
 puts users
