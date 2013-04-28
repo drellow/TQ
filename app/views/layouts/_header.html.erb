@@ -13,12 +13,14 @@
         <li><%= link_to "Suggestions", suggestions_path %></li>
         <li><%= link_to "Scoreboard", scoreboard_path %></li>
         <li><%= link_to "About", about_path %></li>
-          <% if current_user && current_user.admin? %>
-            <li><%= link_to "Admin",
-                  admin_dashboard_path %></li>
-          <% end %>
+        <li><%= link_to "Archives", questions_path %></li>
         <li><%= link_to "Todays Question",
               new_question_path %></li>
+          <% if current_user && current_user.admin? %>
+            <li><%= link_to '<i class="icon-fighter-jet icon-large"></i>'.html_safe,
+                  admin_dashboard_path %></li>
+          <% end %>
+
         <li><%= link_to '<i class="icon-cog icon-large"></i>'.html_safe,
           edit_user_registration_path %></li>   			  
           <li class="dropdown noti-container">
