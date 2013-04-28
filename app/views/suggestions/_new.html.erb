@@ -1,10 +1,10 @@
 <div class="new-suggestion">
-  <span class="suggestion-tip">It costs 50 internets to create a suggestion. You can also use your Internets to vote on others' suggestions</span>
+  <div class="suggestion-tip">It costs 50 Internets to create a suggestion. You can also use your Internets to vote on others' suggestions
+  </div>
   <%= form_for @suggestion do |f| %>
   <%= f.text_area :body %>
   <%= f.submit "Suggest!", :class => "flat-button" %>
   <% end %>
-
 </div>
 
 

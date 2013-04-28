@@ -2,7 +2,7 @@ class SuggestionsController < ApplicationController
   
   def index
     @suggestion = Suggestion.new
-    @suggestions = Suggestion.order('created_at DESC').all
+    @suggestions = Suggestion.order('score DESC').all
   end
   
   def create
@@ -15,9 +15,7 @@ class SuggestionsController < ApplicationController
   end
   
   def vote
-    # It always costs the current user 5
-    # points to vote either up or down.
-    suggestion = Suggestion.find_by_id(params[:answer_id])
+    suggestion = Suggestion.find_by_id(params[:suggestion_id])
     if current_user.score >= 5
       if params[:score] == "up"
         suggestion.score += 5

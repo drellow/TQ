@@ -42,6 +42,11 @@ $(document).ready(function() {
   $('.answer-header form').bind('ajax:success', function(event, data) {
     $(this).closest('.answer-header').find('.user-score').html(data.answer_score);
     $('#current_user_score').html(data.user_score);
+  });
+  
+  $('.suggestion form').bind('ajax:success', function(event, data) {
+    $(this).closest('.suggestion').find('.suggestion-score').html(data.suggestion_score);
+    $('#current_user_score').html(data.user_score)
   })
 
   $('.show-comments').click(function() {
