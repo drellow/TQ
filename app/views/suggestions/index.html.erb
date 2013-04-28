@@ -1,24 +1,24 @@
 <div class="row container bigbox">
   <div class="span4 left-span-content">
 
-    <h1>Create a suggestion!</h1>
+    <h1>Suggest a question!</h1>
 
-    <span>Just because a suggestion, doesn't mean that it will be asked. It still has to pass the Rubber Helmet Test.</span>
+    <span>And use your Internets to upvote other people's suggestions.
+    They still have to pass the Rubber Helmet Test.</span>
 
   </div>
 
   <div class="span7">
     <%= render :partial => 'suggestions/new' %>
     <% @suggestions.each do |suggestion| %>
-      <div class ="suggestion">
-      <div class="suggestion-header" style="background: <%=suggestion.user.color%>"><%= suggestion.user.username %> said:</div> 
-      <% if suggestion.user != current_user && current_user.score >= 5 %>
-      <span class="answer-buttons">
+      <div class ="suggestion" style="background: <%=suggestion.user.color%>"><%= suggestion.user.username %> suggested:
+      <% suggestion.user != current_user && current_user.score >= 5 ? sugg_class = "show-vote" : sugg_class = "hide-vote"%>
+      <span class="suggestion-buttons <%= sugg_class %>">
       <%= button_to "▲", suggestion_vote_path(suggestion_id: suggestion.id,
           score: "up"), remote: true, method: :post,
           form_class: "vote-form", class: "vote-button" %>
-          <br />
-          <span class="user-score" id="user<%= suggestion.user.id %>-score">
+          <br />      
+          <span class="suggestion-score" id="user<%= suggestion.user.id %>-score">
             <%=suggestion.score%>
           </span>
           <br />
@@ -26,7 +26,6 @@
           score: "down"), remote: true, method: :post,
           form_class: "vote-form", class: "vote-button" %>
       </span>
-      <% end %>
       <div class="suggestion-body"><%= suggestion.body %></div>
       </div>
     <% end %>
