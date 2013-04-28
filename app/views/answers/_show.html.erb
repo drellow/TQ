@@ -7,9 +7,8 @@
               Your friend.
         </span>
       <% end %>
-
-        <% if answer.user != current_user && current_user.score >= 5 %>
-        <span class="answer-buttons">
+        <% answer.user != current_user && current_user.score >= 5 ? vote_class = "show-vote" : vote_class = "hide-vote"%>
+        <span class="answer-buttons <%= vote_class %>">
         <%= button_to "▲", answer_vote_path(answer_id: answer.id,
             score: "up"), remote: true, method: :post,
             form_class: "vote-form", class: "vote-button" %>
@@ -21,9 +20,7 @@
         <%= button_to "▼", answer_vote_path(answer_id: answer.id,
             score: "down"), remote: true, method: :post,
             form_class: "vote-form", class: "vote-button" %>
-        </span>
-        <% end %>
-        
+        </span>        
         <br>
         <span class="user-title">
           <%= answer.user.title %>

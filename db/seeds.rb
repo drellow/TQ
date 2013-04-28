@@ -40,7 +40,7 @@ answer_body = ["Oh man I really love this question. I'm just so stoked to be
 #create admin user
 admin = User.new(:username => "christopher", :email => "christopherlives@gmail.com",
        :password => "foobarish", :password_confirmation => "foobarish",
-       :uid => "15706732")
+       :uid => "15706732", :score => 700000)
 admin.skip_confirmation!
 admin.title = UsersHelper.new_title
   admin.color = "rgb(" + (rand(150) + 50).to_s + "," +
@@ -103,6 +103,10 @@ end
   7.times do |i|
     Question.first.answers.where(:user_id => j + 1).first.comments.build(:user_id => (i + j + 1), :body => answer_body.sample).save!
   end
+end
+
+users.each do |u|
+  u.suggestions.build(:body => questions.sample).save!
 end
 
 puts users
