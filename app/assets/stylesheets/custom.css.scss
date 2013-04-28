@@ -5,6 +5,10 @@ body {
  background: black;
 }
 
+.display-none {
+  display: none;
+}
+
 a {
   color: white;
   padding: 10px;
@@ -86,8 +90,6 @@ ul.dropdown-menu.dropdown-flat {
 .fb-friend {
   font-size: 12px;
   color: white;
-  // background: #3B5998;
-  // border: 1px solid black;
   padding: 3px;
   margin: 3px;
   border-radius: 2px;
@@ -174,6 +176,16 @@ textarea:focus {
   input:active {
     background  : rgba(255,255,255,0.2);
     border-top: none;
+  }
+}
+
+.show-vote.vote-form {
+  display: block;
+}
+
+.hide-vote {
+  .vote-form {
+    display: none;
   }
 }
 
@@ -412,6 +424,58 @@ textarea:focus {
   color: lightGray;
   text-shadow: 0px 1px 1px #4d4d4d;
   border-top: 4px solid rgba(255,255,255,0.2);
+}
+
+.suggestion {
+  padding: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  color: lightGray;
+  text-shadow: 0px 1px 1px #4d4d4d;
+  border-top: 4px solid rgba(255,255,255,0.2);
+  margin-bottom: 4px;
+}
+
+.suggestion-tip {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  
+  text-shadow: 0px 1px 1px #4d4d4d;
+  margin-bottom: 10px;
+  background: #1C1C1C;
+  padding: 20px;
+}
+
+.suggestion-body {
+  font-size: 16px;
+  padding: 10px;
+  color: lightGray;
+}
+
+.vote_disabled {
+  display: none;
+}
+
+.suggestion-buttons {
+  margin-top: -15px;
+  float: right;  
+  text-align: center;
+  width: 35px;
+  padding: 0px;
+}
+
+.suggestion-score {
+  font-size: 14px;
+  padding: 0px;
+}
+
+.new-suggestion {
+    margin-bottom: 60px;
+  
+  input {
+    float: right;
+  }
 }
 
 .answer-form {

@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   has_many :fan_relationships, :class_name => "Relationship",
            :foreign_key => :hero_id
   has_many :fans, :through => :fan_relationships
+  has_many :suggestions
+  
+  validates :username, :presence => true
 
   def feed_items
     FeedItem.where(:user_id => self.id).sort_by do |feeditem|
