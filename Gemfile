@@ -21,6 +21,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 gem 'fb_graph'
 gem 'font-awesome-rails'
+gem 'rails_autolink'
 
 group :test do
   gem 'guard-rspec'

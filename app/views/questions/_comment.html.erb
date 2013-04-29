@@ -3,5 +3,5 @@
 </span>
 <span class="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</span>
 <p class="comment-body">
-  <%=  auto_links(simple_format(comment.body), :tags => %w(br p) )%>
+  <%=  auto_link(simple_format(comment.body), :tags => %w(br p) )%>
 </p>
