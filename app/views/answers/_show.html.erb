@@ -30,7 +30,7 @@
 
     <div class="answer-body">
       <p>
-        <%= sanitize(simple_format(answer.body),
+        <%= auto_link(simple_format(answer.body),
           :tags => %w(br p) )%>
       </p>
     </div>
@@ -42,7 +42,6 @@
         <%=answer.comments.count %>
         <i class="icon-comment"></i>
       </span>
-
     </div>
 
     <div class="comments <%= commentstatus %>">
