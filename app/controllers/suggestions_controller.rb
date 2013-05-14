@@ -47,8 +47,12 @@ class SuggestionsController < ApplicationController
   end
   
   def toggle_archive
-    suggestion = Suggestion.find_by_id(params[:suggestion_id])
-    suggestion.toggle!(:archived)
-    redirect_to suggestions_path
+    if current_user.admin?
+      suggestion = Suggestion.find_by_id(params[:suggestion_id])
+      suggestion.toggle!(:archived)
+      redirect_to suggestions_path
+    else
+      redirect_to suggestions_path
+    end
   end
 end
