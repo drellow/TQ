@@ -9,6 +9,7 @@ Tq::Application.routes.draw do
   resources :suggestions, :only => [:index, :create]
   resources :suggestions do
     post 'vote', to: 'suggestions#vote'
+    post 'toggle_archive', to: 'suggestions#toggle_archive'
   end
   get '/about', to: 'static_pages#about'
   get '/admin_dashboard', to: 'admin_dashboard#dashboard'
