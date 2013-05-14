@@ -4,6 +4,14 @@ class Question < ActiveRecord::Base
   belongs_to :user
   validates :user_id, :body, :presence => true
   has_many :answers
+  
+  def release!
+    toggle!(:posted_answers)
+  end
+  
+  def self.release_todays_question!
+    todays_question.release!
+  end
 
   def self.todays_question
     today = Time.now.in_time_zone("Pacific Time (US & Canada)")
