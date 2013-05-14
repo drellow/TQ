@@ -5,11 +5,18 @@
 
     <span>And use your Internets to upvote other people's suggestions.
     They still have to pass the Rubber Helmet Test.</span>
+    
+    <span>If you have more than 50 Internets, you can make a suggestion.</span>
 
   </div>
 
   <div class="span7">
+    <% if current_user.score >= 50 %>
     <%= render :partial => 'suggestions/new' %>
+    <% end %>
+    <br />
+    <h1>New Suggestions</h1>
+    <br />
     <% @suggestions.each do |suggestion| %>
       <div class ="suggestion" style="background: <%=suggestion.user.color%>"><%= suggestion.user.username %> suggested:
       <% suggestion.user != current_user && current_user.score >= 5 ? sugg_class = "show-vote" : sugg_class = "hide-vote"%>
@@ -26,6 +33,32 @@
           score: "down"), remote: true, method: :post,
           form_class: "vote-form", class: "vote-button" %>
       </span>
+      <% if current_user.admin? %>
+        <h6>
+        <%= link_to "Toggle Archived", suggestion_toggle_archive_path(suggestion), method: :post %>
+        </h6>
+      <% end %>
+      <div class="suggestion-body"><%= suggestion.body %></div>
+      </div>
+    <% end %>
+    
+    <br />
+    <h1>Archived Suggestions</h1>
+    <br />
+    
+    <% @archived_suggestions.each do |suggestion| %>
+      <div class ="suggestion" style="background: <%=suggestion.user.color%>"><%= suggestion.user.username %> suggested:
+      <span class="suggestion-buttons hide-vote">    
+          <span class="suggestion-score" id="user<%= suggestion.user.id %>-score">
+            <%=suggestion.score%>
+          </span>
+          <br />
+      </span>
+      <% if current_user.admin? %>
+        <h6>
+          <%= link_to "Toggle Archived", suggestion_toggle_archive_path(suggestion), method: :post %>
+        </h6>
+      <% end %>
       <div class="suggestion-body"><%= suggestion.body %></div>
       </div>
     <% end %>
