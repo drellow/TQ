@@ -6,13 +6,20 @@ class Notifier < ActionMailer::Base
   #   mail( :to => user.email,
   #   :subject => "Thanks for signing up" )
   # end
+  
+  def email_answers
+    User.all.each do |user|
+      email_answer(user).deliver if user.receives_email
+    end
+    Question.todays_question.update_attributes(:emailed_answers => true)
+  end
 
   def email_question(user)
     mail( :to => user.email,
       :subject => Question.todays_question.body )
   end
 
-  def email_answers(user)
+  def email_answer(user)
     mail( :to => user.email,
       :subject => "Answers posted!" )
   end
