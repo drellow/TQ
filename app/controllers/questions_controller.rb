@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   end
 
   def release
-    Question.todays_question.toggle!(:posted_answers)
+    Question.release_todays_question!
     redirect_to admin_dashboard_path
   end
 
