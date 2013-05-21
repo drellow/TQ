@@ -48,6 +48,7 @@ class AnswersController < ApplicationController
           answer.user.save!
         end
       else
+        answer.user.legacy_score -= 5
         answer.score -= 5
         answer.save!
       end
