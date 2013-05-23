@@ -48,7 +48,8 @@ class AnswersController < ApplicationController
           answer.user.save!
         end
       elsif params[:score] == "down"
-        answer.user.legacy_score -= 5
+        answer.user.legacy_score -= 10
+        answer.user.save!
         answer.score -= 5
         answer.save!
       end
