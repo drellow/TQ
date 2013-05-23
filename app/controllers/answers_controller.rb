@@ -1,4 +1,4 @@
-\class AnswersController < ApplicationController
+class AnswersController < ApplicationController
   before_filter :admin_user, :only => [:admin_answers, :destroy]
 
   def new
