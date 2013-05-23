@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+\class AnswersController < ApplicationController
   before_filter :admin_user, :only => [:admin_answers, :destroy]
 
   def new
@@ -47,13 +47,11 @@ class AnswersController < ApplicationController
           answer.user.legacy_score += 10
           answer.user.save!
         end
-      else
+      elsif params[:score] == "down"
         answer.user.legacy_score -= 5
         answer.score -= 5
         answer.save!
       end
-      # Should eventually check if answer saves here too.
-      # http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html
       current_user.score -= 5
       current_user.legacy_score += 1
       current_user.save!
