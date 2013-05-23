@@ -8,8 +8,8 @@ class Notifier < ActionMailer::Base
   # end
   
   def email_answers
-    User.all.each do |user|
-      email_answer(user).deliver if user.receives_email
+    User.where(:receives_email => true).each do |user|
+      email_answer(user).deliver
     end
     Question.todays_question.update_attributes(:emailed_answers => true)
   end
