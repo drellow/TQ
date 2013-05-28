@@ -61,7 +61,7 @@ end
 
 #create basic users
 6.times do |n|
-  user = User.new(:username => names[n], :email => "#{names[n]}@bar.com",
+  user = User.new(:username => names[n], :email => "#{names[n]}@example.com",
            :password => "foobarish", :password_confirmation => "foobarish",
            :uid => friend_ids[n])
   user.title = UsersHelper.new_title
@@ -78,7 +78,7 @@ end
 
 #create friends
 9.times do |n|
-  user = User.new(:username => "#{names[n+6]}er", :email => "#{names[n+6]}@baz.com",
+  user = User.new(:username => "#{names[n+6]}er", :email => "#{names[n+6]}@example.com",
            :password => "foobarish", :password_confirmation => "foobarish")
   user.title = UsersHelper.new_title
   user.color = "rgb(" + (rand(150) + 50).to_s + "," +
