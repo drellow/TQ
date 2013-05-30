@@ -9,7 +9,10 @@ class AdminDashboardController < ApplicationController
 
   def email_answers
     unless Question.todays_question.emailed_answers
-      Notifier.email_answers
+      User.where(:receives_email => true).each do |user|
+         Notifier.email_answers(user).deliver if user.receives_email
+      end
+      Question.todays_question.update_attributes(:emailed_answers => true)
       redirect_to admin_dashboard_path
     else
       flash[:alert] = 'You already sent out the answers!'

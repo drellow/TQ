@@ -18,7 +18,10 @@ task :email_answers => :environment do
   elsif Question.todays_question.emailed_answers?
     puts "I already emailed the answers..."
   else
-    Notifier.email_answers
+    User.where(:receives_email => true).each do |user|
+       Notifier.email_answers(user).deliver if user.receives_email
+    end
+    Question.todays_question.update_attributes(:emailed_answers => true)
     puts "Alrighty, sent emails..."
   end
 end
