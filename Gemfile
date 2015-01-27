@@ -3,34 +3,35 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'rails', '~> 4.1.9'
-gem 'newrelic_rpm'
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
 gem 'bcrypt-ruby'
 gem 'bootstrap'
 gem 'bootstrap-sass'
-gem 'simple_form'
 gem 'devise'
-gem 'jquery-simplecolorpicker-rails'
-gem 'rspec-rails'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'koala'
 gem 'fb_graph'
 gem 'font-awesome-rails'
+gem 'haml'
+gem 'jquery-rails'
+gem 'jquery-simplecolorpicker-rails'
+gem 'koala'
+gem 'newrelic_rpm'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'rails_autolink'
+gem 'rspec-rails'
+gem 'simple_form'
 
 group :test do
-  gem 'guard-rspec'
   gem 'capybara'
-  gem 'rb-fsevent'
-  gem 'growl'
   gem 'factory_girl_rails'
+  gem 'growl'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
 end
 
 group :production do
@@ -38,6 +39,6 @@ group :production do
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'letter_opener'
+  gem 'sqlite3'
 end
