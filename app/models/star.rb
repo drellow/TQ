@@ -5,5 +5,4 @@ class Star < ActiveRecord::Base
   validates :user_id, :uniqueness => { :scope => :answer_id },
                       :presence => true
   validates :answer_id, :presence => true
-
 end
