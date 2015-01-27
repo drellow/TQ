@@ -1,6 +1,4 @@
 class Question < ActiveRecord::Base
-  attr_accessible :body, :info, :user_id, :created_at, :emailed_answers
-
   belongs_to :user
   validates :user_id, :body, :presence => true
   has_many :answers

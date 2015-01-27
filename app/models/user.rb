@@ -7,11 +7,6 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
   devise :confirmable
   include UsersHelper
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :password, :password_confirmation, :username,
-                  :email, :score, :legacy_score, :remember_me,
-                  :title, :color, :provider, :uid, :access_token,
-                  :reset_password_token, :receives_email
 
   before_save do |user|
     user.email = email.downcase
