@@ -1,0 +1,4 @@
+- unless Question.todays_answers.empty?
+  - Question.todays_answers.each do |answer|
+
+    = render :partial => 'answers/uneditable_answer', :locals => { :answer => answer }

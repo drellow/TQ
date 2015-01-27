@@ -1,7 +1,0 @@
-<span class="comment-title" id="comment<%= comment.id %>">
-  <%= comment.user.username %> said:
-</span>
-<span class="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</span>
-<p class="comment-body">
-  <%=  auto_link(simple_format(comment.body), :tags => %w(br p) )%>
-</p>

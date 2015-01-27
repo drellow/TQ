@@ -1,0 +1,13 @@
+.row.container.bigbox
+  .span4
+    %h3 User your powers for good.
+
+    .span7
+      = form_for(@question) do |f|
+        = f.label :body
+        = f.text_area :body
+
+        = f.label :info
+        = f.text_area :info
+
+        = f.submit "Question!", :class => "flat-button"

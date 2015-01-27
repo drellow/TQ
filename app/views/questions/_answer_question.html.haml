@@ -1,0 +1,9 @@
+.current-user-answer= "answered" if current_user.answered_today?
+  .current-user-answered
+    %h3 You said:
+    %p= sanitize(simple_format(current_user.users_current_answer.body), :tags => %w(br p))
+
+    %span.edit-answer.fake-link Edit your answer
+
+  .current-user-not-answered
+    = render "answers/new"

@@ -1,0 +1,16 @@
+.row.container.bigbox
+  .span4.left-span-content
+    %h1 Welcome to the archives!
+
+  .span7
+
+    - @questions.each do |question|
+      .question-slot
+        .question-slot-body= question.body
+        
+        .question-slot-count
+          = #{question.answers.count} answers.
+          = question.created_at.strftime("%m-%d-%Y")
+        %br
+        .question-slot-link= link_to "Read the answers!", question
+  

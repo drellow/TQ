@@ -1,0 +1,18 @@
+.row.container.bigbox
+  .span4.left-span-content
+    - unless Question.todays_question.nil?
+      %h1= Question.todays_question.body
+      %p= Question.todays_question.info
+    - else
+      %h1 No question posted today
+
+  .span7
+    - if Question.question_posted? && Question.todays_question.posted_answers
+      = render 'questions/logged_out_todays_answers'
+    - else
+      - if user_signed_in? && Question.question_posted?
+        = render 'questions/answer_question'
+      - elsif Question.question_posted?
+        %h2= link_to "Log in to answer today's question!", new_user_session_path
+      - else
+        %h2 Keep waiting...

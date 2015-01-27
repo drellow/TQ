@@ -1,0 +1,13 @@
+.row.container.bigbox
+  .span4.left-span-content.question-box
+    - unless @question.nil?
+      %h1= @question.body
+      %p= @question.info
+    - else
+      %h1 No question.
+
+  .span7
+    - if user_signed_in?
+      = render :partial => 'answers/show'
+    - else
+      = render :partial => 'answers/show_logged_out'
