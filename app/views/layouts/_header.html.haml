@@ -1,0 +1,35 @@
+%header.navbar.navbar-inverse
+  .navbar-inner
+    .container-fluid.nav-container
+      %ul
+        %li.brand= link_to "TQ: #{TqHelper.new_tq}", '/'
+
+      %ul.nav.navbar-nav.pull-right
+        - if user_signed_in?
+          %li=link_to "Suggestions", suggestions_path
+          %li=link_to "Scoreboard", scoreboard_path
+          %li=link_to "About", about_path
+          %li=link_to "Today's Question", new_question_path
+          %li=link_to "Archives", questions_path
+
+          - if current_user && current_user.admin?
+            %li= link_to '<i class="icon-fighter-jet icon-large"></i>'.html_safe, admin_dashboard_path
+
+            %li= link_to '<i class="icon-cog icon-large"></i>'.html_safe, edit_user_registration_path
+            %li.dropdown.noti-container
+              %a{:href=> "#", :class=> "dropdown-toggle", :data => {:toggle=>"dropdown"} }
+                %i.icon-envelope-alt.icon-large
+                  - if current_user.unread_item_count > 0
+                    %p.noti-badge= current_user.unread_item_count
+
+                %ul.dropdown-menu.dropdown-flat
+                  - current_user.feed_items.each do | feeditem |
+                    %li{:class => "read<%= feeditem.read %>"}
+                      = link_to "#{feeditem.body}", feeditem, :method => :put, :class => "dropdown-item"
+
+          %li= link_to '<i class="icon-signout icon-large"></i>'.html_safe, destroy_user_session_path,
+                :method => :delete
+        - else
+          %li= link_to "Archives", questions_path
+          %li= link_to "Log in", new_user_session_path
+          %li= link_to "Sign up", new_user_registration_path
