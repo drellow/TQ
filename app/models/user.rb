@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   devise :confirmable
   include UsersHelper
 
-  before_save { email = email.downcase }
+  before_save { email.try(:downcase) }
 
   has_many :questions
   has_many :answers
